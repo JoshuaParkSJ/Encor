@@ -73,8 +73,7 @@ export default function SimpleTabs() {
         <Tabs value={value} onChange={handleChange} 
         aria-label="simple tabs example" 
         TabIndicatorProps={{style: {background:'black'}}}>  
-          <Tab label="Links" {...a11yProps}> 
-          </Tab>
+          <Tab label="Links" {...a11yProps} /> 
           <Tab label="Design" {...a11yProps(1)} disabled />
           <Tab label="Setting" {...a11yProps(2)} disabled />
         </Tabs>

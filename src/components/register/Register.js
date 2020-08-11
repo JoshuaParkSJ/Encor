@@ -22,7 +22,7 @@ const Register = () => {
       try {
         await firebase.register(username, email, password);
         await firebase.login(email, password);
-        await firebase.createUserDB();
+        firebase.createUserDB();
       } catch (error) {
         console.log(error.message);
       }

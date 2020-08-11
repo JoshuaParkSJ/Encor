@@ -49,7 +49,7 @@ const Admin = () => {
 
   return (
     <>
-    <Grid container spacing={3} spacing={1}>
+    <Grid container spacing={3}>
       <Grid item xs={12}>
         <LinksContainer>
           {newLink ? newLink.map(child => child) : null} 
