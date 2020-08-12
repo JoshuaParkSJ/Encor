@@ -24,7 +24,9 @@ const theme  = createMuiTheme({
   tab: {
       backgroundColor: 'white',
       selectedBackgroundColor: '#000000'
-  }
+  },
+  shadows: ["none"]
+
 });
 
 const history = createBrowserHistory();

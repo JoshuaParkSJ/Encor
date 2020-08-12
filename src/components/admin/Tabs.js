@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Logo from '../../assets/images/logo.svg'
 import Links from './Links';
 import AdminCustomizer from './AdminCustomizer';
-import HomeIcon from '@material-ui/icons/Home';
+// import HomeIcon from '@material-ui/icons/Home';
 import { Route } from "react-router-dom";
 
 function TabPanel(props) {
