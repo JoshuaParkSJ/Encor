@@ -16,18 +16,10 @@ const theme  = createMuiTheme({
   palette: {
     primary: purple,
     secondary: green,
-  },
-  tabs: {
-     backgroundColor: 'white',
-     selectedBackgroundColor: '#000000'
-  },
-  tab: {
-      backgroundColor: 'white',
-      selectedBackgroundColor: '#000000'
   }
 });
 
-const history = createBrowserHistory();
+const history = createBrowserHistory(); 
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
