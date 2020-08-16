@@ -16,7 +16,16 @@ const theme  = createMuiTheme({
   palette: {
     primary: purple,
     secondary: green,
-  }
+  },
+  tabs: {
+     backgroundColor: 'white',
+     selectedBackgroundColor: '#000000'
+  },
+  tab: {
+      backgroundColor: 'white',
+      selectedBackgroundColor: '#000000'
+  },
+  shadows: ["none"]
 });
 
 const history = createBrowserHistory(); 
