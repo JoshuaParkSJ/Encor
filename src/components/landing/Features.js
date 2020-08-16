@@ -120,22 +120,29 @@ const Features = () => {
         </Grid>
     </Grid>
     </FeaturesContainer>
+
     <FeaturesContainer>
-    <Grid container spacing={3}  alignItems="center" justify="center">
-        <Grid item md={6}>
+    <Grid container spacing={3} alignItems="center" justify="center">
+      <Box clone order={{ xs: 3, md: 2 }}>
+        <Grid item lg={6}>
+            <BannerAnimation2 ref={animation3}></BannerAnimation2>
+        </Grid>
+      </Box>
+      <Box clone order={{ xs: 2, md: 3 }}>
+        <Grid item lg={6}>
         <Fade in='true' timeout={1000}>
-            <TextContainer3>
-              <Tagline>Real Time Data </Tagline>
-              <Typography >Get live data analyitics to <br/>enhance better user reach </Typography >
-            </TextContainer3>
+            <TextContainer2>
+              <Tagline>Real Time Data</Tagline>
+              <Typography > Get live data analyitics to <br/>enhance better user reach </Typography >
+            </TextContainer2>
           </Fade>
         </Grid>
-        <Grid item md={6}>
-          <BannerAnimation ref={animation3}></BannerAnimation>
-        </Grid>
+      </Box>
     </Grid>
     </FeaturesContainer>
  
+
+    
   </>
   )};
 
