@@ -1,75 +1,95 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import firebase from '../../firebaseconfig';
-import { SocialCard } from '../styledComponents/DemoCard';
-import { SpacingUpper, SpacingBottom, URLHandler }from '../styledComponents/StyledAdminCustomizer';
-import User from '../user/User';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Tabs from './Tabs';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    shadows: ['none']
-  },
-
-}));
-
-function TabPanel (props) {
-  const { children, value, index, ...other } = props;
-  return (
-    <div
-    
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
+import { Row, Col } from 'react-flexbox-grid';
+// import User from '../user/User';
+import { PhoneOutline, Navbar, StyledTabs, URLHandler, Logo, FlexMarginedDiv } from '../styledComponents/StyledAdmin';
+import Encor from '../../assets/images/logo.png';
+import Links from './Links';
+import Design from './Design';
+import Settings from './Settings';
+import useContainerDimensions from '../../utilities/useContainerDimensions';
 
 const Admin = () => {
+
+  const componentRef = useRef()
+  const { width } = useContainerDimensions(componentRef);
+  const [activeTab, setActiveTab] = useState({
+    links: 'active',
+    design: 'not-active',
+    settings: 'not-active',
+  });
+
   const username = {
     params: {
       user: `${firebase.getCurrentUsername()}`
     }
   }
-  const classes = useStyles();
+
+  const handleClick = e => {
+    if (e.target.value === 'links') {
+      setActiveTab({
+        links: 'active',
+        design: 'not-active',
+        settings: 'not-active',
+      })
+    }
+    if (e.target.value === 'design') {
+      setActiveTab({
+        links: 'not-active',
+        design: 'active',
+        settings: 'not-active',
+      })
+    }
+    if (e.target.value === 'settings') {
+      setActiveTab({
+        links: 'not-active',
+        design: 'not-active',
+        settings: 'active',
+      })
+    }
+  }
+
   return (
-    <div className={classes.root} >
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={8} >
-          <Tabs />
-        </Grid>
-        <Grid item xs={12} md={4} direction='column'>
-          <Paper className={classes.paper} square='false'>
-            <URLHandler>encor.cc/{firebase.getCurrentUsername()}</URLHandler>
-          </Paper>
-          <SpacingUpper/>
-          <Paper className="card" square='false'>
-            <SocialCard>
-              <User match={username}/>
-            </SocialCard>
-          </Paper>
-          <SpacingBottom/>
-        </Grid>
-      </Grid>
-    </div>
+    <React.Fragment>
+      <Row>
+        <FlexMarginedDiv>
+          <Logo src={Encor} alt="Encor logo" />
+          <Navbar>
+            <StyledTabs className={activeTab.links} value='links' onClick={handleClick}>Links</StyledTabs>
+            <StyledTabs className={activeTab.design} value='design' onClick={handleClick}>Design</StyledTabs>
+            <StyledTabs className={activeTab.settings} value='settings' onClick={handleClick}>Settings</StyledTabs>
+          </Navbar>
+          {width < 768 ? null : (
+            <URLHandler >
+              <a href={`//www.encor.cc/${firebase.getCurrentUsername()}`} target="_blank" rel="noopener noreferrer" style={{color: 'white'}}>
+                encor.cc/{firebase.getCurrentUsername()}
+              </a>
+            </URLHandler>
+          )}
+        </FlexMarginedDiv>
+      </Row>
+      <div ref={componentRef}>
+        <Row style={{ background: '#F2F2F2' }}>
+          <FlexMarginedDiv>
+            <Col xs>
+              {activeTab.links === 'active' ? <Links /> : null}
+              {activeTab.design === 'active' ? <Design /> : null}
+              {activeTab.settings === 'active' ? <Settings /> : null}
+            </Col>
+            <Col xs>
+              {width < 768 ? null : (
+              <PhoneOutline>
+                {/* <User match={username}/> */}
+              </PhoneOutline>
+              )}
+            </Col>
+          </FlexMarginedDiv>
+        </Row>
+      </div>
+      <Row>
+        Footer
+      </Row>
+    </React.Fragment>
   );
 }
 

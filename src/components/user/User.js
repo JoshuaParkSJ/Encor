@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import firebase from '../../firebaseconfig';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Row, Col } from 'react-flexbox-grid';
 import{
-  Background, 
   ProfileContainer, 
+  Avatar,
   Username, 
-  Bio, 
   SpotlightLink,
   SocialMediaIcon, 
   IconContainer, 
   CardLogo
 } from "../styledComponents/StyledUser";
 import MockAvatar from '../../assets/images/mockavatar.png'
-import Avatar from '@material-ui/core/Avatar';
 
 const User = ({ match, location }) => {
   const [icons, setIcons] = useState(null);
@@ -32,6 +30,7 @@ const User = ({ match, location }) => {
     if (linkAmount > 0) {
       setIcons(loadIcons());
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [linkAmount])
   
   const matchIcon = link => link.split('www.')[1].split('.com')[0];
@@ -71,18 +70,14 @@ const User = ({ match, location }) => {
   }
 
   return (
-    <Background>
+    <ProfileContainer>
       { userLinks.exists ? 
-        <ProfileContainer>
-        <Grid>
+        <React.Fragment>
           <Row>
-            <Avatar src={MockAvatar} style={{margin: 'auto', width: '120px', height: '120px'}}/>
+            <Avatar src={MockAvatar} alt="profile picture" />
           </Row>
           <Row>
-            <Username>@{match.params.user}</Username>
-          </Row>
-          <Row>
-            <Bio>{userLinks.bio}</Bio>
+            <Username>{match.params.user}</Username>
           </Row>
           <Row>
             <SpotlightLink href={spotLink} target="_blank">{userLinks.spotlightLabel}</SpotlightLink>
@@ -90,12 +85,11 @@ const User = ({ match, location }) => {
           <IconContainer>
             {icons}
           </IconContainer>
-          <CardLogo>Adripa</CardLogo>
-        </Grid> 
-        </ProfileContainer>
+          <CardLogo>Encor</CardLogo>
+        </React.Fragment>
        :
-      <h1>User does not exist</h1> }
-    </Background>
+      <h3 style={{textAlign: 'center'}}>Username is free :)</h3> }
+    </ProfileContainer>
   )
 }
 

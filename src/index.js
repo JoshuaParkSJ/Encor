@@ -26,10 +26,9 @@ const theme  = createMuiTheme({
       selectedBackgroundColor: '#000000'
   },
   shadows: ["none"]
-
 });
 
-const history = createBrowserHistory();
+const history = createBrowserHistory(); 
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
