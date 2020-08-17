@@ -117,7 +117,7 @@ export default function Footer2() {
           <Grid item>
             <Typography variant="h2">
               <Icon>
-                <img src={Logo}/>
+                <img src={Logo} alt='encor-logo'/>
               </Icon>
 
             </Typography>

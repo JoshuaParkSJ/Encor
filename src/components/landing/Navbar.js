@@ -5,9 +5,9 @@ import {
   withStyles, Grid, SwipeableDrawer, Button, SvgIcon
 } from '@material-ui/core';
  import MenuIcon from '@material-ui/icons/Menu';
- import Instagram from '../../assets/images/instagram-icon.png';
  import Logo from './Logo';
  import  SignupButton  from './SignupButton';
+
 
 const styleSheet = {
   list : {
@@ -87,10 +87,10 @@ class ResAppBar extends Component{
 
             <List className = {this.props.classes.list}>
                <ListItem key = {1} button divider className = {this.props.classes.listItem}> Features </ListItem>
-               <ListItem key = {2} button divider className = {this.props.classes.listItem}> Log In </ListItem>
+              <ListItem key = {2} button divider className = {this.props.classes.listItem}> Log In </ListItem>
                <ListItem key = {3} button divider className = {this.props.classes.listItem}> Free Sign In </ListItem>
              </List>
-             <div  style={{height: 30 + 'px', width: 30 + 'px', paddingLeft: 85 + 'px', bottom: 0 + 'px', position: 'absolute', paddingBottom: 10 + 'px'}}>
+             <div  style={{height: 40 + 'px', width: 40 + 'px', paddingLeft: 85 + 'px', bottom: 0 + 'px', position: 'absolute', paddingBottom: 10 + 'px'}}>
             <Logo/>
             </div>
          </div>
