@@ -62,3 +62,10 @@ export const Text = styled.h1`
   line-height: 140.62%;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
 `
+
+export const InvisibleButton = styled.button`
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+`

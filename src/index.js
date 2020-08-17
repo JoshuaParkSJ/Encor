@@ -11,6 +11,14 @@ import Register from './components/register/Register';
 import Login from './components/login/Login';
 import Admin from './components/admin/Admin';
 import User from './components/user/User';
+import Terms from './components/legal/Terms';
+import Privacy from './components/legal/Privacy';
+import Contact from './components/legal/Contact';
+import Blog from './components/legal/Blog';
+import Faq from './components/legal/Faq';
+import About from './components/legal/About';
+import Plans from './components/legal/Plans';
+import Forgot from './components/legal/Forgot';
 
 const theme  = createMuiTheme({
   palette: {
@@ -39,6 +47,14 @@ ReactDOM.render(
         <Route exact path="/login" component={Login} />
         <Route exact path="/admin" component={Admin}/>
         <Route exact path='/:user' component={User}/>
+        <Route exact path='/l/terms' component={Terms}/>
+        <Route exact path='/l/privacy' component={Privacy}/>
+        <Route exact path='/l/contact' component={Contact}/>
+        <Route exact path='/l/blog' component={Blog}/>
+        <Route exact path='/l/faq' component={Faq} />
+        <Route exact path='/l/about' component={About}/>
+        <Route exact path='/l/plans' component={Plans}/>
+        <Route exact path='/l/forgot' component={Forgot}/>
       </Switch>
     </Router>
   </ThemeProvider>,
