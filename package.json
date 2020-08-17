@@ -12,6 +12,7 @@
     "firebase": "^7.17.2",
     "firebase-tools": "^8.7.0",
     "history": "^5.0.0",
+    "lottie-web": "^5.7.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-flexbox-grid": "^2.1.2",

@@ -7,14 +7,23 @@ import {
  import MenuIcon from '@material-ui/icons/Menu';
  import Instagram from '../../assets/images/instagram-icon.png';
  import Logo from './Logo';
+ import  SignupButton  from './SignupButton';
 
 const styleSheet = {
   list : {
-    width : 200,
+    width : 300,
+    fontFamily: 'Roboto',
+    fontSize: '27px',
+    borderBottom: 'none'
   },
   padding : {
     paddingRight : 30,
     cursor : "pointer",
+  },
+
+  listItem: {
+    bordeBottom: '0px'
+    
   },
 
   sideBarIcon : {
@@ -77,11 +86,13 @@ class ResAppBar extends Component{
              onKeyDown={()=>{this.setState({drawer:false})}}>
 
             <List className = {this.props.classes.list}>
-               <ListItem key = {1} button divider> Features </ListItem>
-               <ListItem key = {2} button divider> Log In </ListItem>
-               <ListItem key = {3} button divider> Free Sign In </ListItem>
+               <ListItem key = {1} button divider className = {this.props.classes.listItem}> Features </ListItem>
+               <ListItem key = {2} button divider className = {this.props.classes.listItem}> Log In </ListItem>
+               <ListItem key = {3} button divider className = {this.props.classes.listItem}> Free Sign In </ListItem>
              </List>
-
+             <div  style={{height: 30 + 'px', width: 30 + 'px', paddingLeft: 85 + 'px', bottom: 0 + 'px', position: 'absolute', paddingBottom: 10 + 'px'}}>
+            <Logo/>
+            </div>
          </div>
        </SwipeableDrawer>
 
@@ -102,10 +113,10 @@ class ResAppBar extends Component{
             <Button> Features </Button>
           </Typography>
           <Typography  className = {classes.padding} color="inherit">
-            <Button>Login</Button>
+            <Button> Login </Button>
           </Typography>
-          <Typography  className = {classes.padding} color="inherit" >
-            <Button>Free Sign In</Button>
+          <Typography  variant={"h6"} className = {classes.padding} color="inherit" >
+            <SignupButton/>
           </Typography>
         </Toolbar>
       </AppBar>
