@@ -90,7 +90,7 @@ class ResAppBar extends Component{
               <ListItem key = {2} button divider className = {this.props.classes.listItem}> Log In </ListItem>
                <ListItem key = {3} button divider className = {this.props.classes.listItem}> Free Sign In </ListItem>
              </List>
-             <div  style={{height: 40 + 'px', width: 40 + 'px', paddingLeft: 85 + 'px', bottom: 0 + 'px', position: 'absolute', paddingBottom: 10 + 'px'}}>
+             <div  style={{height: 30 + 'px', width: 30 + 'px', paddingLeft: 85 + 'px', bottom: 0 + 'px', position: 'absolute', paddingBottom: 10 + 'px'}}>
             <Logo/>
             </div>
          </div>
@@ -106,8 +106,8 @@ class ResAppBar extends Component{
     return (
       <AppBar color='white'>
         <Toolbar>
-          <Typography  style={{flexGrow:1}} color="inherit" >
-            <Logo />
+          <Typography  style={{flexGrow:1}} color="inherit" width='50px'height='50px' >
+            <Logo  style={{width: 50 + 'px', height: 50 + 'px'}} />
           </Typography>
           <Typography  className = {classes.padding} color="inherit" >
             <Button> Features </Button>
