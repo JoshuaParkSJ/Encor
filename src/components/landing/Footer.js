@@ -101,10 +101,10 @@ export default function Footer2() {
             </Typography>
             <ul className={classes.list}>
               <li className={classes.listItem}>
-                <Link href="/premium-themes/onepirate/terms/" color='inherit'>Terms</Link>
+                <Link href="/terms/" color='inherit'>Terms</Link>
               </li>
               <li className={classes.listItem}>
-                <Link href="/premium-themes/onepirate/privacy/" color='inherit'>Privacy</Link>
+                <Link href="/privacy" color='inherit'>Privacy</Link>
               </li>
             </ul>
           </Grid>
