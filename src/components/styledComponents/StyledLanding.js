@@ -19,7 +19,6 @@ export const FeaturesContainer = styled.div`
 export const Features2Container = styled.div`
     height: 00px;
     width: 100%;
-
 `;
 
 export const TextContainer = styled.div`
@@ -36,7 +35,6 @@ export const TextContainer2 = styled.div`
     width: 100%;
     padding-left: 15%;
 
-    
      @media (max-width: 960px) {
          padding-top: 0px;
          padding-left: 0px;
@@ -47,13 +45,8 @@ export const TextContainer3 = styled.div`
     width: 100%;
     padding-left: 150px;
     @media (max-width: 960px) {
-      
-    
-        padding-left: 0px;
-     
+        padding-left: 0px;     
      }
-
-
 `;
 
 
@@ -92,10 +85,7 @@ export const BannerAnimation2 = styled.div`
         width: 400px;
         padding-left: 0px
      }
-
-    
 `;
-
 
 export const LogoStyling = styled.div`
      padding-left: 12px
@@ -105,4 +95,4 @@ export const FooterContainer = styled.div`
      width: 100%;
      background-color: #888888;
      color: white;
-`
+`;

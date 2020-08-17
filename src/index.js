@@ -13,6 +13,7 @@ import Admin from './components/admin/Admin';
 import User from './components/user/User';
 
 const theme  = createMuiTheme({
+
   palette: {
     primary: purple,
     secondary: green,

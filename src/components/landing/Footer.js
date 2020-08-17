@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#232323',
     color: 'white',
     width: '100%',
+    flexGrow: 1
 
   },
   container: {
@@ -73,7 +74,7 @@ export default function Footer2() {
   return (
     <Typography component="footer" className={classes.root}>
       <Container className={classes.container}>
-        <Grid container spacing={5} xs={12}>
+        <Grid container spacing={0} xs={12}>
           <Grid item xs={6} sm={4} md={3}>
             <Grid
               container
