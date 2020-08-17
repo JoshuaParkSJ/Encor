@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import { HeaderText, Logo, Signup, InvisibleButton } from '../styledComponents/StyledHeaderFooter';
-import GlobalStyle from '../styledComponents/GlobalStyle';
+import { GlobalStyle } from '../styledComponents/GlobalStyle';
 import Encor from '../../assets/images/logo.png';
 
 const Footer = () => {

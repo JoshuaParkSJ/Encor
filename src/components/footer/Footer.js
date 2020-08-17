@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import { Background, Text } from '../styledComponents/StyledHeaderFooter';
-import GlobalStyle from '../styledComponents/GlobalStyle';
+import { GlobalStyle } from '../styledComponents/GlobalStyle';
 
 const Footer = () => {
   return (

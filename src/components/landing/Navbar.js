@@ -110,9 +110,9 @@ class ResAppBar extends Component{
             <Logo />
           </Typography>
           <Typography  className = {classes.padding} color="inherit" >
-            <Button> Features </Button>
+            <Button onClick={() => window.location = '/l/plans'}> Plans </Button>
           </Typography>
-          <Typography  className = {classes.padding} color="inherit">
+          <Typography onClick={() => window.location = '/login'} className = {classes.padding} color="inherit">
             <Button> Login </Button>
           </Typography>
           <Typography  variant={"h6"} className = {classes.padding} color="inherit" >

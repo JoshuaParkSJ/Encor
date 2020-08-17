@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import firebase from '../../firebaseconfig';
 import { Row, Col } from 'react-flexbox-grid';
 // import User from '../user/User';
+import { GlobalGray } from '../styledComponents/GlobalStyle';
 import { PhoneOutline, Navbar, StyledTabs, URLHandler, Logo, FlexMarginedDiv } from '../styledComponents/StyledAdmin';
 import Encor from '../../assets/images/logo.png';
 import Links from './Links';
@@ -51,7 +52,8 @@ const Admin = () => {
 
   return (
     <React.Fragment>
-      <Row>
+      <GlobalGray />
+      <Row style={{ background: 'white', position: 'relative', top: '-7px'}}>
         <FlexMarginedDiv>
           <Logo src={Encor} alt="Encor logo" />
           <Navbar>
@@ -86,9 +88,6 @@ const Admin = () => {
           </FlexMarginedDiv>
         </Row>
       </div>
-      <Row>
-        Footer
-      </Row>
     </React.Fragment>
   );
 }

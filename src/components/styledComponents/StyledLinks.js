@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import StyledButton from './Button';
+import Button from './Button';
 import TextField from '@material-ui/core/TextField';
 
 export const ProfileBox = styled.div`
@@ -32,7 +32,7 @@ export const LinkBox = styled.div`
   }
 `;
 
-export const UploadImage = styled(StyledButton)`
+export const UploadImage = styled(Button)`
   width: 200px;
   height: 30px;
   position: relative; 
@@ -40,7 +40,7 @@ export const UploadImage = styled(StyledButton)`
   right: -120px;
 `;
 
-export const RemoveImage = styled(StyledButton)`
+export const RemoveImage = styled(Button)`
   width: 200px;
   height: 30px; 
   position: relative; 
@@ -78,4 +78,13 @@ export const AddLinkButton = styled.button`
   border: none;
   background: transparent;
   outline: none;
+`
+
+export const ApplyButton = styled(Button)`
+  position: relative;
+  top: 45px;
+  left: 245px;
+  float: right;
+  width: 200px;
+  height: 30px; 
 `
