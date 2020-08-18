@@ -26,7 +26,12 @@ const theme  = createMuiTheme({
       backgroundColor: 'white',
       selectedBackgroundColor: '#000000'
   },
-  shadows: ["none"]
+  shadows: ["none"],
+
+  typography: {
+    fontFamily: "Roboto"
+  }
+  
 });
 
 const history = createBrowserHistory(); 

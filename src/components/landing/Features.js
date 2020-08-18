@@ -66,21 +66,6 @@ const Features = () => {
     })
   }, [])
 
-  const styles = theme => ({
-    item2: {
-      order: 3,
-      [theme.breakpoints.up('sm')]: {
-        order: 2,
-      },
-    },
-    item3: {
-      order: 2,
-      [theme.breakpoints.up('sm')]: {
-        order: 3,
-      },
-    },
-  });
-
   return  (
   <>
   <FeaturesContainer>
@@ -94,7 +79,7 @@ const Features = () => {
         <Grid item lg={6}>
         <Fade in='true' timeout={1000}>
             <TextContainer2>
-              <Tagline>Add Your Social Media</Tagline>
+              <Tagline style={{fontFamily: 'Roboto'}}>Add Your Social Media</Tagline>
               <Typography > Out of our 30+ generic social media icons <br/>
                   click them to enable as many social<br/>
                   media handles as you want!s</Typography >
@@ -104,12 +89,13 @@ const Features = () => {
       </Box>
     </Grid>
     </FeaturesContainer>
+
     <FeaturesContainer>
     <Grid container spacing={3}  alignItems="center" justify="center">
         <Grid item md={6}>
         <Fade in='true' timeout={1000}>
             <TextContainer3>
-              <Tagline>Minimalist Design</Tagline>
+              <Tagline style={{fontFamily: 'Roboto'}}>Minimalist Design</Tagline>
               <Typography > Customize your card to<br/> help you connect with<br/> your peers</Typography >
             </TextContainer3>
           </Fade>
@@ -131,7 +117,7 @@ const Features = () => {
         <Grid item lg={6}>
         <Fade in='true' timeout={1000}>
             <TextContainer2>
-              <Tagline>Real Time Data</Tagline>
+              <Tagline style={{fontFamily: 'Roboto'}}>Real Time Data</Tagline>
               <Typography > Get live data analyitics to <br/>enhance better user reach </Typography >
             </TextContainer2>
           </Fade>
@@ -139,9 +125,6 @@ const Features = () => {
       </Box>
     </Grid>
     </FeaturesContainer>
- 
-
-    
   </>
   )};
 
