@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { Col } from 'react-flexbox-grid';
 import firebase from '../../firebaseconfig';
 import Footer from '../footer/Footer';
-import { Logo, Header, HeaderLink, ContentBox, Text, SignupButton } from '../../components/styledComponents/StyledSignUpIn';
+import { Logo, Header, HeaderLink, ContentBox, Text, SignupButton, InvisibleButton } from '../../components/styledComponents/StyledSignUpIn';
 import Encor from '../../assets/images/logo.png';
 
 import TextField from '@material-ui/core/TextField';
@@ -28,7 +28,9 @@ const Register = () => {
       <React.Fragment>
       <Header>
         <Col xs={6}>
-          <Logo src={Encor} alt='Encor logo'/>
+          <InvisibleButton onClick={() => window.location.href = '/'}>
+            <Logo src={Encor} alt='Encor logo'/>
+          </InvisibleButton>
         </Col>
         <Col xs={6}>
           <HeaderLink href="/register">Sign Up Free</HeaderLink>
@@ -63,25 +65,23 @@ const Register = () => {
         />
         <br />
         <br />
-        <Route render={({ history }) => (
-          <SignupButton
-            className='primary'
-            style={{marginTop: '30px'}}
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={e => {
-              e.preventDefault(); 
-              login();
-              email && password && logged ? history.push('/admin') : setError(true);
-            }}
-          >
-            Login
-          </SignupButton>
-        )} />
+        <SignupButton
+          className='primary'
+          style={{marginTop: '30px'}}
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          onClick={e => {
+            e.preventDefault(); 
+            login();
+            email && password && logged ? window.location.href = '/admin' : setError(true);
+          }}
+        >
+          Login
+        </SignupButton>
         <br />
-        <Text>Forgot password?</Text>
+        <Text>Forgot password? <a href='/l/forgot' style={{color: 'black'}}>click here</a></Text>
         {error && <Text style={{color: 'red'}}>Please enter all fields</Text> }
       </ContentBox>
       <Footer />

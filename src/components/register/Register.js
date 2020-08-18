@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { Row, Col } from 'react-flexbox-grid';
 import firebase from '../../firebaseconfig';
 import Footer from '../footer/Footer';
-import { Logo, Header, HeaderLink, ContentBox, Text, SignupButton } from '../../components/styledComponents/StyledSignUpIn';
+import { Logo, Header, HeaderLink, ContentBox, Text, SignupButton, InvisibleButton } from '../../components/styledComponents/StyledSignUpIn';
 import Encor from '../../assets/images/logo.png';
 
 import TextField from '@material-ui/core/TextField';
@@ -32,14 +32,18 @@ const Register = () => {
     <React.Fragment>
       <Header>
         <Col xs={6}>
-          <Logo src={Encor} alt='Encor logo' />
+          <InvisibleButton onClick={() => window.location.href = '/'}>
+            <Logo src={Encor} alt='Encor logo'/>
+          </InvisibleButton>
         </Col>
         <Col xs={6}>
           <HeaderLink href="/login">Login</HeaderLink>
         </Col>
       </Header>
       <ContentBox>
-        <Logo src={Encor} alt='Encor logo' style={{width: '200px', height: '46px'}} />
+        <InvisibleButton onClick={() => window.location.href = '/'}>
+          <Logo src={Encor} alt='Encor logo' style={{width: '200px', height: '46px'}} />
+        </InvisibleButton>
           <TextField
             style={{marginTop: '10px'}}
             autoComplete="username"
@@ -92,12 +96,11 @@ const Register = () => {
         <div style={{margin: 'auto'}}>
           <Row>
             <Checkbox color="primary" />
-            <Text>I agree to <strong>Terms of Services</strong></Text>
+            <Text>I agree to <strong><a href='/l/terms' style={{textDecoration: 'none'}}>Terms of Services</a></strong></Text>
           </Row>
         </div>
       </Row>
       <br />
-      <Route render={({ history }) => (
       <SignupButton
         className='primary'
         style={{marginTop: '10px'}}
@@ -108,12 +111,11 @@ const Register = () => {
         onClick={e => {
           e.preventDefault(); 
           onRegister();
-          username && email && password ? history.push('/admin') : setError(true);
+          username && email && password ? window.location.href = '/admin' : setError(true);
         }}
       >
         Sign Up
       </SignupButton>
-      )} />
       {error && <Text style={{color: 'red'}}>Please enter all fields</Text> }
       </ContentBox>
       <br />

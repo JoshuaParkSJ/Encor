@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
+import { Row, Col } from 'react-flexbox-grid';
 import firebase from '../../firebaseconfig';
 import MockAvatar from '../../assets/images/mockavatar.png'
 import Add from '../../assets/images/add.png';
-import { ProfileBox, Profile, LinkBox, UploadImage, RemoveImage, Title, Link, AddLinkButton } from '../styledComponents/StyledLinks';
+import { ProfileBox, Profile, LinkBox, UploadImage, RemoveImage, Title, Link, AddLinkButton, ApplyButton } from '../styledComponents/StyledLinks';
 
 const AdminCustomizer = () => {
   const [links, setLinks] = useState({});
@@ -55,7 +56,10 @@ const AdminCustomizer = () => {
         <RemoveImage className="white">Remove</RemoveImage>
       </ProfileBox>
       <LinkBox>
-        <Title>Link</Title>
+        <Row>
+          <Title>Link</Title>
+          <ApplyButton className='secondary'>Apply Changes</ApplyButton>
+        </Row>
         <Link label="Link One Website" onBlur={e => setSpotlightLabel(e.target.value)}/>
         <Link label="Website URL" onBlur={e => setSpotlightLink(e.target.value)}/>
         <Title>Social</Title>

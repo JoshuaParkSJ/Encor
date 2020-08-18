@@ -13,5 +13,5 @@ const MyButton = styled(Button)({
 });
 
 export default function SignupButton() {
-  return <MyButton>Free Sign Up</MyButton>;
+  return <MyButton onClick={() => window.location = '/register'}>Free Sign Up</MyButton>;
 }

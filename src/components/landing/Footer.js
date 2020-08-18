@@ -1,4 +1,5 @@
 import React from 'react';
+import { GlobalStyle } from '../styledComponents/GlobalStyle';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
@@ -27,8 +28,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#232323',
     color: 'white',
     width: '100%',
-    flexGrow: 1
-
   },
   container: {
     marginTop: theme.spacing(8),
@@ -73,6 +72,7 @@ export default function Footer2() {
 
   return (
     <Typography component="footer" className={classes.root}>
+      <GlobalStyle />
       <Container className={classes.container}>
         <Grid container spacing={0} xs={12}>
           <Grid item xs={6} sm={4} md={3}>
@@ -102,10 +102,10 @@ export default function Footer2() {
             </Typography>
             <ul className={classes.list}>
               <li className={classes.listItem}>
-                <Link href="/terms/" color='inherit'>Terms</Link>
+                <Link href="/l/terms" color='inherit'>Terms</Link>
               </li>
               <li className={classes.listItem}>
-                <Link href="/privacy" color='inherit'>Privacy</Link>
+                <Link href="/l/privacy" color='inherit'>Privacy</Link>
               </li>
             </ul>
           </Grid>
@@ -120,7 +120,6 @@ export default function Footer2() {
               <Icon>
                 <img src={Logo} alt='encor-logo'/>
               </Icon>
-
             </Typography>
           </Grid>
         </Grid>
