@@ -4,7 +4,7 @@ import aLogo from '../../assets/images/logo.svg';
 
 const Logo = () => (
     <Icon>
-        <img src={aLogo} alt="Logo" />
+        <img src={aLogo} alt="Logo"width='150px' height='100px' />
     </Icon>
 )
 export default Logo;

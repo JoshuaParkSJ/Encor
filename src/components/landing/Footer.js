@@ -74,7 +74,7 @@ export default function Footer2() {
     <Typography component="footer" className={classes.root}>
       <GlobalStyle />
       <Container className={classes.container}>
-        <Grid container spacing={5} xs={12}>
+        <Grid container spacing={0} xs={12}>
           <Grid item xs={6} sm={4} md={3}>
             <Grid
               container
@@ -118,7 +118,7 @@ export default function Footer2() {
           <Grid item>
             <Typography variant="h2">
               <Icon>
-                <img src={Logo}/>
+                <img src={Logo} alt='encor-logo'/>
               </Icon>
             </Typography>
           </Grid>

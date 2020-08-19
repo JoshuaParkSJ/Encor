@@ -5,9 +5,9 @@ import {
   withStyles, Grid, SwipeableDrawer, Button, SvgIcon
 } from '@material-ui/core';
  import MenuIcon from '@material-ui/icons/Menu';
- import Instagram from '../../assets/images/instagram-icon.png';
  import Logo from './Logo';
  import  SignupButton  from './SignupButton';
+
 
 const styleSheet = {
   list : {
@@ -87,7 +87,7 @@ class ResAppBar extends Component{
 
             <List className = {this.props.classes.list}>
                <ListItem key = {1} button divider className = {this.props.classes.listItem}> Features </ListItem>
-               <ListItem key = {2} button divider className = {this.props.classes.listItem}> Log In </ListItem>
+              <ListItem key = {2} button divider className = {this.props.classes.listItem}> Log In </ListItem>
                <ListItem key = {3} button divider className = {this.props.classes.listItem}> Free Sign In </ListItem>
              </List>
              <div  style={{height: 30 + 'px', width: 30 + 'px', paddingLeft: 85 + 'px', bottom: 0 + 'px', position: 'absolute', paddingBottom: 10 + 'px'}}>
@@ -106,8 +106,8 @@ class ResAppBar extends Component{
     return (
       <AppBar color='white'>
         <Toolbar>
-          <Typography  style={{flexGrow:1}} color="inherit" >
-            <Logo />
+          <Typography  style={{flexGrow:1}} color="inherit" width='50px'height='50px' >
+            <Logo  style={{width: 50 + 'px', height: 50 + 'px'}} />
           </Typography>
           <Typography  className = {classes.padding} color="inherit" >
             <Button onClick={() => window.location = '/l/plans'}> Plans </Button>

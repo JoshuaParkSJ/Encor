@@ -21,6 +21,7 @@ import Plans from './components/legal/Plans';
 import Forgot from './components/legal/Forgot';
 
 const theme  = createMuiTheme({
+
   palette: {
     primary: purple,
     secondary: green,
@@ -33,7 +34,12 @@ const theme  = createMuiTheme({
       backgroundColor: 'white',
       selectedBackgroundColor: '#000000'
   },
-  shadows: ["none"]
+  shadows: ["none"],
+
+  typography: {
+    fontFamily: "Roboto"
+  }
+  
 });
 
 const history = createBrowserHistory(); 
