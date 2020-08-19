@@ -54,7 +54,7 @@ const Register = () => {
             id="userame"
             label="Username"
             autoFocus
-            onBlur={e => {setUsername(e.target.value.toLowerCase())}}
+            onChange={e => {setUsername(e.target.value.toLowerCase())}}
           />
           <TextField
             style={{marginTop: '10px'}}
@@ -65,7 +65,7 @@ const Register = () => {
             label="Email Address"
             name="email"
             autoComplete="email"
-            onBlur={e => {setEmail(e.target.value)}}
+            onChange={e => {setEmail(e.target.value)}}
           />
           <TextField
             style={{marginTop: '10px'}}
@@ -77,7 +77,7 @@ const Register = () => {
             type="password"
             id="password"
             autoComplete="current-password"
-            onBlur={e => {setPassword(e.target.value)}}
+            onChnage={e => {setPassword(e.target.value)}}
           />
           <TextField
             style={{marginTop: '10px'}}

@@ -18,6 +18,7 @@ class Firebase {
     firebase.initializeApp(firebaseConfig);
     this.auth = firebase.auth();
     this.db = firebase.firestore();
+    this.storage = firebase.storage();
   }
 
   async login(email, password) {
@@ -46,12 +47,11 @@ class Firebase {
     return currentUser;
   }
 
-  addLinksToUser({ bio, spotlightLabel, spotlightLink, links }) {
+  addLinksToUser({ spotlightLabel, spotlightLink, links }) {
     const user = this.auth.currentUser;
       if (user) {
         console.log(user);
         this.db.collection('users').doc(user.displayName).set({
-          bio: bio,
           spotlightLabel: spotlightLabel,
           spotlightLink: spotlightLink,
           links: links,
@@ -83,7 +83,6 @@ class Firebase {
         return { 
           exists: true, 
           links: doc.data().links, 
-          bio: doc.data().bio, 
           spotlightLabel: doc.data().spotlightLabel, 
           spotlightLink: doc.data().spotlightLink 
         };
@@ -115,6 +114,10 @@ class Firebase {
       return user.displayName;
     }
     return null;
+  }
+
+  fileUpload(file) {
+    this.storage.ref('profile_pictures/' + file.name).put(file).;
   }
   
 };

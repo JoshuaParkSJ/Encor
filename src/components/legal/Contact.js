@@ -9,7 +9,9 @@ const Terms = () => {
     <Header />
     <Box>
       <h1>Contact Us</h1>
-      <h3>Sorry, Website under constrution :(</h3>
+      <br/>
+      <h3>Got a question? We'd love to hear from you</h3>
+      <h3>Email us at helloencor@gmail.com</h3>
     </Box>
     <Footer />
     </React.Fragment>

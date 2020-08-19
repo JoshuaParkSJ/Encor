@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Row, Col } from 'react-flexbox-grid';
+import { Row } from 'react-flexbox-grid';
 import firebase from '../../firebaseconfig';
 import MockAvatar from '../../assets/images/mockavatar.png'
 import Add from '../../assets/images/add.png';
@@ -10,6 +10,7 @@ const AdminCustomizer = () => {
   const [newLink, setNewLink] = useState([]);
   const [spotlightLabel, setSpotlightLabel] = useState('');
   const [spotlightLink, setSpotlightLink] = useState('')
+  const refContainer = useRef(null);
 
   const linkRef = useRef();
 
@@ -34,6 +35,7 @@ const AdminCustomizer = () => {
   
     return (
       <form noValidate autoComplete="off">
+        <br />
         <Link label="Social" onBlur={handleBlur}/>
       </form>
     )
@@ -47,22 +49,49 @@ const AdminCustomizer = () => {
     firebase.addLinksToUser({ spotlightLabel, spotlightLink, links });
   }
   
+  const clickRef = e => {
+    refContainer.current.click();
+  }
+
+  const fileUpload = e => {
+    const fileUploaded = e.target;
+    if (!fileUploaded) {
+      console.log("p", "Um, couldn't find the fileinput element.");
+    }
+    else if (!fileUploaded.files) {
+        console.log("p", "This browser doesn't seem to support the `files` property of file inputs.");
+    }
+    else if (!fileUploaded.files[0]) {
+        console.log("p", "Please select a file before clicking 'Load'");
+    }
+        const file = fileUploaded.files[0];
+        console.log("p", "File " + file.name + " is " + file.size + " bytes in size");
+    
+    // handleFile(fileUploaded); firebase manage
+  };
+
   return (
     <React.Fragment>
       <ProfileBox>
         <Title>Profile</Title>
         <Profile src={MockAvatar} />
-        <UploadImage className="secondary">Upload Image</UploadImage>
+          <input type="file" id="file" ref={refContainer} onChange={fileUpload} style={{display: "none"}}/>
+          <UploadImage className="secondary" onClick={clickRef}>
+            Upload Image
+          </UploadImage>
         <RemoveImage className="white">Remove</RemoveImage>
       </ProfileBox>
       <LinkBox>
-        <Row>
+        <Row style={{marginLeft: '10px'}}>
           <Title>Link</Title>
-          <ApplyButton className='secondary'>Apply Changes</ApplyButton>
+          <ApplyButton className='secondary' onClick={() => applyChanges()}>Apply Changes</ApplyButton>
+          <Link label="Link One Website" onBlur={e => setSpotlightLabel(e.target.value)}/>
+          <br />
+          <br />
+          <br />
+          <Link label="Website URL" onBlur={e => setSpotlightLink(e.target.value)}/>
+          <Title>Social</Title>
         </Row>
-        <Link label="Link One Website" onBlur={e => setSpotlightLabel(e.target.value)}/>
-        <Link label="Website URL" onBlur={e => setSpotlightLink(e.target.value)}/>
-        <Title>Social</Title>
         <AddLinkButton onClick={handleClick}>
           <img src={Add} alt="add social media" style={{width: '15px', height: '15px'}} />
         </AddLinkButton>

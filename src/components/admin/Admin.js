@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import firebase from '../../firebaseconfig';
 import { Row, Col } from 'react-flexbox-grid';
-// import User from '../user/User';
+import User from '../user/User';
 import { GlobalGray } from '../styledComponents/GlobalStyle';
 import { PhoneOutline, Navbar, StyledTabs, URLHandler, Logo, FlexMarginedDiv } from '../styledComponents/StyledAdmin';
 import Encor from '../../assets/images/logo.png';
