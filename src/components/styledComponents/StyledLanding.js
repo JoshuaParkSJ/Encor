@@ -52,6 +52,7 @@ export const TextContainer3 = styled.div`
 
 export const Tagline = styled.h1`
     margin-bottom: 0;
+    font-family: Roboto;
   
     background: -webkit-linear-gradient(221.2deg, #4E64F8 5.74%, #7E74F9 33%, #CA8CFB 61.35%, #FB8C8C 108.23%); 
     -webkit-background-clip: text;
