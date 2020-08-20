@@ -21,6 +21,7 @@ export const LinkBox = styled.div`
   width: 600px;
   padding-bottom: 40px;
   margin-bottom: 20px;
+  margin-top: 30px;
   position: relative;
   right: 100px;
   border-radius: 10px;
