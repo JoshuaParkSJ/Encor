@@ -1,5 +1,5 @@
 import React, { useEffect, useRef} from 'react';
-import {BannerContainer, TextContainer, BannerAnimation, Tagline} from '../styledComponents/StyledLanding';
+import {BannerContainer, TextContainer, BannerAnimation, Tagline, DynamicURLAnimation} from '../styledComponents/StyledLanding';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import lottie from 'lottie-web';
@@ -31,8 +31,9 @@ const Banner = () => {
         <Fade in='true' timeout={1000}>
           <TextContainer>
             <Tagline style={{fontFamily: 'Roboto'}}>Link all your socials <br/> into a specialized platform</Tagline>
-            <Typography > Connect with your peers for free</Typography >
+            <Typography variant="subtitle1" > Connect with your peers for free</Typography >
             <img src={Input} style={{width: 350 + 'px', paddingTop: 10 + 'px'}}/>
+            {/*<DynamicURLAnimation><Typography> encor.cc</Typography></DynamicURLAnimation> */}
           </TextContainer>
         </Fade>
       </Grid>

@@ -37,7 +37,13 @@ const theme  = createMuiTheme({
   shadows: ["none"],
 
   typography: {
-    fontFamily: "Roboto"
+    fontFamily: "Roboto",
+    subtitle1: {
+      fontSize: 23,
+      '@media (max-width: 960px)': {
+        fontSize: 16
+      }
+    },
   }
   
 });
