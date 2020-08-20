@@ -59,15 +59,15 @@ const AdminCustomizer = () => {
       console.log("p", "Um, couldn't find the fileinput element.");
     }
     else if (!fileUploaded.files) {
-        console.log("p", "This browser doesn't seem to support the `files` property of file inputs.");
+      console.log("p", "This browser doesn't seem to support the `files` property of file inputs.");
     }
     else if (!fileUploaded.files[0]) {
-        console.log("p", "Please select a file before clicking 'Load'");
+      console.log("p", "Please select a file before clicking 'Load'");
+    } else {
+      const file = fileUploaded.files[0];
+      console.log("p", "File " + file.name + " is " + file.size + " bytes in size");
+      firebase.pfpUpload(fileUploaded.files[0], firebase.getCurrentUsername());
     }
-        const file = fileUploaded.files[0];
-        console.log("p", "File " + file.name + " is " + file.size + " bytes in size");
-    
-    // handleFile(fileUploaded); firebase manage
   };
 
   return (
@@ -79,7 +79,7 @@ const AdminCustomizer = () => {
           <UploadImage className="secondary" onClick={clickRef}>
             Upload Image
           </UploadImage>
-        <RemoveImage className="white">Remove</RemoveImage>
+        <RemoveImage className="white" onClick={firebase.pfpRemove()}>Remove</RemoveImage>
       </ProfileBox>
       <LinkBox>
         <Row style={{marginLeft: '10px'}}>

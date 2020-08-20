@@ -116,8 +116,38 @@ class Firebase {
     return null;
   }
 
-  fileUpload(file) {
-    this.storage.ref('profile_pictures/' + file.name).put(file).;
+  pfpUpload(file, username) {
+    let downloadurl = null;
+    const onResolve = () => {
+      // existing pfp
+      this.storage.ref('profile_pictures/' + username + 'pfp').delete().then(() => {
+        onReject();
+      }).catch(error => {
+        console.log(error);
+      })
+    }
+    const onReject = error => {
+      // no pfp
+      const task = this.storage.ref('profile_pictures/' + username + '/' + 'pfp').put(file);
+      task.on("state changed", error => {
+        console.log(error);
+      },
+      () => {
+        downloadurl = this.storage.ref('profile_pictures/' + username + '/' + 'pfp').getDownloadURL();
+      });
+    };
+    this.storage.ref('profile_pictures/' + username + '/' + 'pfp').getDownloadURL().then(onResolve, onReject);
+    return downloadurl;
+  }
+  
+  pfpRemove(username) {
+    this.storage.ref('profile_pictures/' + username + 'pfp').delete().then().catch(error => {
+      console.log(error);
+    })
+  }
+
+  pfpGet(username) {
+    return this.storage.ref('profile_pictures/' + username + '/' + 'pfp').getDownloadURL();
   }
   
 };
