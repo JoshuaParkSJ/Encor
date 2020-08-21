@@ -82,7 +82,7 @@ const Features = () => {
               <Tagline style={{fontFamily: 'Roboto'}}>Add Your Social Media</Tagline>
               <Typography > Out of our 30+ generic social media icons <br/>
                   click them to enable as many social<br/>
-                  media handles as you want!s</Typography >
+                  media handles as you want!</Typography >
             </TextContainer2>
           </Fade>
         </Grid>
