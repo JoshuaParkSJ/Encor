@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from './Navbar';
+import Navbar from '../navigations/Navbar.js';
 import Banner from './Banner';
 import Features from './Features';
-import Footer from './Footer';
+import Footer from '../navigations/Footer';
 
 const Landing = () => 
   <div>

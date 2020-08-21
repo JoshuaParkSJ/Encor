@@ -14,10 +14,19 @@ export const BannerContainer = styled.div`
 export const FeaturesContainer = styled.div`
   height: 650px;
   width: 100%;
+
+  @media (max-width: 1200px) {
+    height: 750px;
+
+  }
+  @media (max-width: 960px) {
+    height: 650px;
+
+  }
 `;
 
 export const Features2Container = styled.div`
-  height: 0px;
+  height: 550px;
   width: 100%;
 `;
 
@@ -34,18 +43,22 @@ export const TextContainer2 = styled.div`
   padding-left: 7%;
   position: relative;
 
+
     @media (max-width: 960px) {
         padding-top: 0px;
         padding-left: 0px;
         width: 100%;
+      
     }
 `;
 
 export const TextContainer3 = styled.div`
-  width: 100%;
+  width: 550px;
   padding-left: 150px;
   @media (max-width: 960px) {
-      padding-left: 0px;     
+      padding-left: 0px;   
+      padding-bottom: 30px;
+      width: 100%  
     }
 `;
 

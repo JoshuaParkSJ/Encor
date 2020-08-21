@@ -74,7 +74,7 @@ export default function Footer2() {
     <Typography component="footer" className={classes.root}>
       <GlobalStyle />
       <Container className={classes.container}>
-        <Grid container spacing={0} xs={12}>
+        <Grid container spacing={2} xs={12}>
           <Grid item xs={6} sm={4} md={3}>
             <Grid
               container
@@ -112,7 +112,7 @@ export default function Footer2() {
               </li>
             </ul>
           </Grid>
-          <Grid item xs={6} sm={8} md={2}>
+          <Grid item xs={6} sm={6} md={2}>
             <Typography variant="h6" marked="left" gutterBottom>
               Company
             </Typography>
@@ -128,14 +128,11 @@ export default function Footer2() {
               </li>
             </ul>
           </Grid>
-          <Grid item xs={6} sm={8} md={2}>
+          <Grid item xs={6} sm={6} md={2}>
             <Typography variant="h6" marked="left" gutterBottom>
               Help
             </Typography>
             <ul className={classes.list}>
-            <li className={classes.listItem}>
-                <Link href="/l/about" color='inherit'>About us</Link>
-              </li>
               <li className={classes.listItem}>
                 <Link href="/l/faq" color='inherit'>FAQ</Link>
               </li>

@@ -7,7 +7,7 @@ import {
  import MenuIcon from '@material-ui/icons/Menu';
  import Logo from './Logo';
  import  SignupButton  from './SignupButton';
-
+ import { InvisibleButton } from '../styledComponents/StyledHeaderFooter';
 
 const styleSheet = {
   list : {
@@ -64,7 +64,9 @@ class ResAppBar extends Component{
         <AppBar color='white' >
           <Toolbar>
             <Grid container direction = "row" justify = "space-between" alignItems="center">
-              <Typography color="inherit"><Logo /></Typography>
+              <InvisibleButton onClick={() => window.location.href = '/'}>
+                <Typography color="inherit"><Logo /></Typography>
+              </InvisibleButton>
               <Typography color="inherit"></Typography>
               <MenuIcon
                 className = {this.props.classes.sideBarIcon}
@@ -107,7 +109,9 @@ class ResAppBar extends Component{
       <AppBar color='white' position='relative'>
         <Toolbar>
           <Typography  style={{flexGrow:1}} color="inherit" width='50px'height='50px' >
-            <Logo  style={{width: 50 + 'px', height: 50 + 'px'}} />
+            <InvisibleButton onClick={() => window.location.href = '/'}>
+              <Logo  style={{width: 50 + 'px', height: 50 + 'px'}} />
+            </InvisibleButton>
           </Typography>
           <Typography  className = {classes.padding} color="inherit" >
             <Button onClick={() => window.location = '/l/plans'}> Plans </Button>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box } from '../styledComponents/StyledLegal';
-import Footer from '../footer/Footer';
-import Header from '../header/Header';
+import Footer from '../navigations/Footer';
+import Navbar from '../navigations/Navbar';
 
 const Terms = () => {
   return (
     <React.Fragment>
-    <Header />
+    <Navbar />
     <Box>
       <h1>Terms and Conditions</h1>
       <p>Last updated: August 16, 2020</p>

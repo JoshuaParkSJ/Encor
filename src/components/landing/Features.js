@@ -69,7 +69,7 @@ const Features = () => {
   return  (
   <>
   <FeaturesContainer>
-    <Grid container spacing={0} alignItems="center" justify="center">
+    <Grid container spacing={0} alignItems="center" justify="center" >
       <Box clone order={{ xs: 3, md: 2 }}>
         <Grid item lg={6}>
             <BannerAnimation2 ref={animation2}></BannerAnimation2>

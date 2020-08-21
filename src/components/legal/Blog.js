@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box } from '../styledComponents/StyledLegal';
-import Footer from '../footer/Footer';
-import Header from '../header/Header';
+import Footer from '../navigations/Footer';
+import Navbar from '../navigations/Navbar';
 
 const Terms = () => {
   return (
     <React.Fragment>
-    <Header />
+    <Navbar />
     <Box>
       <h1>Blog</h1>
       <h3>Sorry, Website under constrution :(</h3>
