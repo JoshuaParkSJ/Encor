@@ -10,6 +10,8 @@ const Landing = () =>
     <Banner/>
     <Features/>
     <Footer/>
+    
+
   </div>
 
 export default Landing;

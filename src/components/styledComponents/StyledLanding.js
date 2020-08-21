@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const BannerContainer = styled.div`
   height: 550px;
   width: 100%;
-  padding-top: 75px;
+  padding-top: 55px;
 
   @media (max-width: 1200px) {
+      padding-top: 105px;
       height: 650px;
     }
 `;
@@ -16,26 +17,27 @@ export const FeaturesContainer = styled.div`
 `;
 
 export const Features2Container = styled.div`
-  height: 00px;
+  height: 0px;
   width: 100%;
 `;
 
 export const TextContainer = styled.div`
   width: 100%;
   padding-left: 150px;
-  
   @media (max-width: 960px) {
-
-      padding-left: 0px
+      text-align:center;
+      padding-left: 10px
     }
 `;
 export const TextContainer2 = styled.div`
-  width: 100%;
-  padding-left: 15%;
+  width: 550px;
+  padding-left: 7%;
+  position: relative;
 
     @media (max-width: 960px) {
         padding-top: 0px;
         padding-left: 0px;
+        width: 100%;
     }
 `;
 
@@ -52,7 +54,6 @@ export const Tagline = styled.h1`
   margin-bottom: 0;
   font-family: Roboto;
   src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap") format('woff2');
-
   background: -webkit-linear-gradient(221.2deg, #4E64F8 5.74%, #7E74F9 33%, #CA8CFB 61.35%, #FB8C8C 108.23%); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -70,9 +71,10 @@ export const Tagline = styled.h1`
 export const BannerAnimation = styled.div`
   width: 550px;
   text-align: center;
-
+  padding-left: 5%;
   @media (max-width: 960px) {
       width: 400px;
+      padding-left: 0px;
     }
 `;
 

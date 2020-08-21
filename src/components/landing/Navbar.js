@@ -104,7 +104,7 @@ class ResAppBar extends Component{
   destroyDrawer(){
     const {classes} = this.props
     return (
-      <AppBar color='white'>
+      <AppBar color='white' position='relative'>
         <Toolbar>
           <Typography  style={{flexGrow:1}} color="inherit" width='50px'height='50px' >
             <Logo  style={{width: 50 + 'px', height: 50 + 'px'}} />

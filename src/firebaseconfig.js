@@ -117,7 +117,7 @@ class Firebase {
   }
 
   fileUpload(file) {
-    this.storage.ref('profile_pictures/' + file.name).put(file).;
+    this.storage.ref('profile_pictures/' + file.name).put(file);
   }
   
 };

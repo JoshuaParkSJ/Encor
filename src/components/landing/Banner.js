@@ -26,7 +26,7 @@ const Banner = () => {
   return  (
 
   <BannerContainer>
-    <Grid container spacing={3} sm={12}  alignItems="center" justify="center" >
+    <Grid container spacing={0} sm={12}  alignItems="center" justify="center" >
       <Grid item md={6}>
         <Fade in='true' timeout={1000}>
           <TextContainer>
