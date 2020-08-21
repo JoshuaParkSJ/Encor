@@ -14,10 +14,14 @@ import MockAvatar from '../../assets/images/mockavatar.png'
 
 const User = ({ match, location }) => {
   const [icons, setIcons] = useState(null);
+  const [pfpURL, setPfpURL] = useState(MockAvatar);
   const [userLinks, setUserLinks] = useState({exists: false});
   const spotLink = `//${userLinks.spotlightLink}`
   const linkAmount = userLinks.links ? Object.keys(userLinks.links).length : 0
   const ICON_AMOUNT_PER_ROW = 5;
+  firebase.pfpGet(match.params.user).then(url => {
+    setPfpURL(url);
+  })
 
 
   useEffect(() => {
@@ -74,7 +78,7 @@ const User = ({ match, location }) => {
       { userLinks.exists ? 
         <React.Fragment>
           <Row>
-            <Avatar src={MockAvatar} alt="profile picture" />
+            <Avatar src={pfpURL} alt="profile picture" />
           </Row>
           <Row>
             <Username>{match.params.user}</Username>
