@@ -107,15 +107,44 @@ export default function Footer2() {
               <li className={classes.listItem}>
                 <Link href="/l/privacy" color='inherit'>Privacy</Link>
               </li>
+              <li className={classes.listItem}>
+                <Link href="/l/contact" color='inherit'>Contact</Link>
+              </li>
             </ul>
           </Grid>
-          <Grid item xs={6} sm={8} md={4}>
+          <Grid item xs={6} sm={8} md={2}>
             <Typography variant="h6" marked="left" gutterBottom>
-              Sponsorship
+              Company
             </Typography>
-            DDQIC
+            <ul className={classes.list}>
+            <li className={classes.listItem}>
+                <Link href="/l/about" color='inherit'>About us</Link>
+              </li>
+              <li className={classes.listItem}>
+                <Link href="/l/plans" color='inherit'>Plans</Link>
+              </li>
+              <li className={classes.listItem}>
+                <Link href="/l/blog" color='inherit'>Blog</Link>
+              </li>
+            </ul>
           </Grid>
-          <Grid item>
+          <Grid item xs={6} sm={8} md={2}>
+            <Typography variant="h6" marked="left" gutterBottom>
+              Help
+            </Typography>
+            <ul className={classes.list}>
+            <li className={classes.listItem}>
+                <Link href="/l/about" color='inherit'>About us</Link>
+              </li>
+              <li className={classes.listItem}>
+                <Link href="/l/faq" color='inherit'>FAQ</Link>
+              </li>
+              <li className={classes.listItem}>
+                <Link href="/l/forgot" color='inherit'>Forgot</Link>
+              </li>
+            </ul>
+          </Grid>
+          <Grid item alignItems='center' justify='center'>
             <Typography variant="h2">
               <Icon>
                 <img src={Logo} alt='encor-logo'/>

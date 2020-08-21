@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '../styledComponents/StyledLegal';
-import Footer from '../footer/Footer';
+import Footer from '../../components/landing/Footer';
 import Header from '../header/Header';
 
 const Terms = () => {
