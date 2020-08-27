@@ -52,6 +52,7 @@ export const ContentBox = styled.div`
   text-align: center;
   margin: auto;
   width: 500px;
+  padding-bottom: 50px;
 `
 
 export const Text = styled.h1`
