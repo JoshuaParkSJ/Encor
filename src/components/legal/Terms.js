@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '../styledComponents/StyledLegal';
+import { BoxDiv, Tagline } from '../styledComponents/StyledLegal';
 import Footer from '../navigations/Footer';
 import Navbar from '../navigations/Navbar';
 
@@ -7,8 +7,8 @@ const Terms = () => {
   return (
     <React.Fragment>
     <Navbar />
-    <Box>
-      <h1>Terms and Conditions</h1>
+    <BoxDiv>
+      <Tagline style={{fontFamily: 'Roboto'}}>Terms and Conditions</Tagline>
       <p>Last updated: August 16, 2020</p>
       <p>Please read these terms and conditions carefully before using Our Service.</p>
       <h1>Interpretation and Definitions</h1>
@@ -90,7 +90,7 @@ const Terms = () => {
       <ul>
       <li>By email: helloencor@gmail.com</li>
       </ul>
-    </Box>
+    </BoxDiv>
     <Footer />
     </React.Fragment>
   )

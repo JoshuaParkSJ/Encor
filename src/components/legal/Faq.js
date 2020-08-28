@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '../styledComponents/StyledLegal';
+import { BoxDiv, Tagline } from '../styledComponents/StyledLegal';
 import Footer from '../navigations/Footer';
 import Navbar from '../navigations/Navbar';
 
@@ -7,10 +7,10 @@ const Terms = () => {
   return (
     <React.Fragment>
     <Navbar />
-    <Box>
-      <h1>FAQ</h1>
-      <h3>Sorry, Website under constrution :(</h3>
-    </Box>
+    <BoxDiv>
+      <Tagline style={{fontFamily: 'Roboto'}}>FAQ</Tagline>
+      <h3>Coming Soon!</h3>
+    </BoxDiv>
     <Footer />
     </React.Fragment>
   )
