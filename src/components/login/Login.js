@@ -12,16 +12,17 @@ const Register = () => {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [logged, setLogged] = useState(false);
 
   const login = async () => {
+    let logged = false;
     try {
       await firebase.login(email, password);
       console.log(firebase.isLoggedIn());
-      setLogged(true);
+      logged = true;
     } catch (e) {
-      setLogged(false)
+      logged = false;
     }
+    logged ? window.location.href = '/admin' : setError(true);
   }
 
   return (
@@ -75,14 +76,13 @@ const Register = () => {
           onClick={e => {
             e.preventDefault(); 
             login();
-            email && password && logged ? window.location.href = '/admin' : setError(true);
           }}
         >
           Login
         </SignupButton>
         <br />
         <Text>Forgot password? <a href='/l/forgot' style={{color: 'black'}}>click here</a></Text>
-        {error && <Text style={{color: 'red'}}>Please enter all fields</Text> }
+        {error && <Text style={{color: 'red'}}>Invalid credentials</Text> }
       </ContentBox>
       <Footer />
     </React.Fragment>

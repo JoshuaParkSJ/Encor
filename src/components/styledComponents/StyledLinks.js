@@ -79,6 +79,7 @@ export const AddLinkButton = styled.button`
   border: none;
   background: transparent;
   outline: none;
+  cursor: pointer;
 `
 
 export const ApplyButton = styled(Button)`
