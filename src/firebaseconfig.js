@@ -22,9 +22,7 @@ class Firebase {
   }
 
   async login(email, password) {
-    await this.auth.signInWithEmailAndPassword(email, password).then(user => {
-      console.log('logged in');
-    });
+    await this.auth.signInWithEmailAndPassword(email, password);
   }
 
   logout() {
@@ -47,19 +45,13 @@ class Firebase {
     return currentUser;
   }
 
-  addLinksToUser({ spotlightLabel, spotlightLink, links }) {
+  addLinksToUser({ spotlightLabel, spotlightLink, linkRef }) {
     const user = this.auth.currentUser;
       if (user) {
-        console.log(user);
-        this.db.collection('users').doc(user.displayName).set({
+        return this.db.collection('users').doc(user.displayName).set({
           spotlightLabel: spotlightLabel,
           spotlightLink: spotlightLink,
-          links: links,
-        }).then(() => {
-          console.log("Document successfully written!");
-        })
-        .catch(function(error) {
-            console.error("Error writing document: ", error);
+          links: linkRef.current,
         });
       } else {
         console.log('not logged in')
@@ -100,20 +92,18 @@ class Firebase {
       return true;
     }
     return false;
-    // this.auth.onAuthStateChanged(user => {
-    //   if (user) {
-    //     return true;
-    //   }
-    // })
-    // return false;
   }
 
-  getCurrentUsername() {
+  getCurrentUsername() {    
     const user = this.auth.currentUser;
     if (user) {
-      return user.displayName;
-    }
+      return user;
+    } 
     return null;
+  }
+
+  getAuth() {
+    return this.auth;
   }
 
   pfpUpload(file, username) {
@@ -128,28 +118,27 @@ class Firebase {
     }
     const onReject = error => {
       // no pfp
-      const task = this.storage.ref('profile_pictures/' + username + '/' + 'pfp').put(file);
+      const task = this.storage.ref(`profile_pictures/${username}/pfp`).put(file);
       task.on("state changed", error => {
         console.log(error);
       },
       () => {
-        downloadurl = this.storage.ref('profile_pictures/' + username + '/' + 'pfp').getDownloadURL();
+        downloadurl = this.storage.ref(`profile_pictures/${username}/pfp`).getDownloadURL();
       });
     };
-    this.storage.ref('profile_pictures/' + username + '/' + 'pfp').getDownloadURL().then(onResolve, onReject);
+    this.storage.ref(`profile_pictures/${username}/pfp`).getDownloadURL().then(onResolve, onReject);
     return downloadurl;
   }
   
   pfpRemove(username) {
-    this.storage.ref('profile_pictures/' + username + 'pfp').delete().then().catch(error => {
+    this.storage.ref(`profile_pictures/${username}/pfp`).delete().then().catch(error => {
       console.log(error);
     })
   }
 
   pfpGet(username) {
-    return this.storage.ref('profile_pictures/' + username + '/' + 'pfp').getDownloadURL();
+    return this.storage.ref(`profile_pictures/${username}/pfp`).getDownloadURL();
   }
-  
 };
 
 export default new Firebase();

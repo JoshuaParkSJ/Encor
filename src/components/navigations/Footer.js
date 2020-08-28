@@ -5,8 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Container from '@material-ui/core/Container';
 import Typography from '../partials/Typography';
-import Facebook from '../../assets/images/facebook-icon.png';
-import Instagram from '../../assets/images/instagram-icon.png'
+import Facebook from '../../assets/images/social-media-icons/facebook-icon.png';
+import Instagram from '../../assets/images/social-media-icons/instagram-icon.png'
 import Logo from '../../assets/images/logo.svg';
 import Icon from '@material-ui/core/Icon';
 

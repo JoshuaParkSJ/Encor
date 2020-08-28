@@ -10,7 +10,7 @@ import{
   IconContainer, 
   CardLogo
 } from "../styledComponents/StyledUser";
-import MockAvatar from '../../assets/images/mockavatar.png'
+import MockAvatar from '../../assets/images/mockavatar.jpg'
 
 const User = ({ match, location }) => {
   const [icons, setIcons] = useState(null);

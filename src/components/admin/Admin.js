@@ -1,29 +1,27 @@
 import React, { useState, useRef } from 'react';
 import firebase from '../../firebaseconfig';
 import { Row, Col } from 'react-flexbox-grid';
-import User from '../user/User';
 import { GlobalGray } from '../styledComponents/GlobalStyle';
-import { PhoneOutline, Navbar, StyledTabs, URLHandler, Logo, FlexMarginedDiv } from '../styledComponents/StyledAdmin';
+import { Navbar, StyledTabs, Logo, FlexMarginedDiv } from '../styledComponents/StyledAdmin';
 import Encor from '../../assets/images/logo.png';
 import Links from './Links';
 import Design from './Design';
 import Settings from './Settings';
-import useContainerDimensions from '../../utilities/useContainerDimensions';
 
-const Admin = () => {
-
-  const componentRef = useRef()
-  const { width } = useContainerDimensions(componentRef);
+const Admin = () => {  
+  const [username, setUsername] = useState('');
   const [activeTab, setActiveTab] = useState({
     links: 'active',
     design: 'not-active',
     settings: 'not-active',
   });
 
-  const username = {
-    params: {
-      user: `${firebase.getCurrentUsername()}`
-    }
+  if (!username) {
+    firebase.getAuth().onAuthStateChanged(user => {
+      if (user) {
+        setUsername(user.displayName);
+      }
+    });
   }
 
   const handleClick = e => {
@@ -61,33 +59,17 @@ const Admin = () => {
             <StyledTabs className={activeTab.design} value='design' onClick={handleClick}>Design</StyledTabs>
             <StyledTabs className={activeTab.settings} value='settings' onClick={handleClick}>Settings</StyledTabs>
           </Navbar>
-          {width < 768 ? null : (
-            <URLHandler >
-              <a href={`//www.encor.cc/${firebase.getCurrentUsername()}`} target="_blank" rel="noopener noreferrer" style={{color: 'white'}}>
-                encor.cc/{firebase.getCurrentUsername()}
-              </a>
-            </URLHandler>
-          )}
         </FlexMarginedDiv>
       </Row>
-      <div ref={componentRef}>
-        <Row style={{ background: '#F2F2F2' }}>
-          <FlexMarginedDiv>
-            <Col xs>
-              {activeTab.links === 'active' ? <Links /> : null}
-              {activeTab.design === 'active' ? <Design /> : null}
-              {activeTab.settings === 'active' ? <Settings /> : null}
-            </Col>
-            <Col xs>
-              {width < 768 ? null : (
-              <PhoneOutline>
-                {/* <User match={username}/> */}
-              </PhoneOutline>
-              )}
-            </Col>
-          </FlexMarginedDiv>
-        </Row>
-      </div>
+      <Row style={{ background: '#F2F2F2' }}>
+        <FlexMarginedDiv>
+          <Col xs>
+            {activeTab.links === 'active' ? <Links /> : null}
+            {activeTab.design === 'active' ? <Design /> : null}
+            {activeTab.settings === 'active' ? <Settings /> : null}
+          </Col>
+        </FlexMarginedDiv>
+      </Row>
     </React.Fragment>
   );
 }
