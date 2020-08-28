@@ -24,7 +24,7 @@ const theme  = createMuiTheme({
 
   palette: {
     primary: purple,
-    secondary: green,
+    secondary: purple,
   },
   tabs: {
      backgroundColor: 'white',
