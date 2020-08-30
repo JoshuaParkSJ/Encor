@@ -45,13 +45,13 @@ class Firebase {
     return currentUser;
   }
 
-  addLinksToUser({ spotlightLabel, spotlightLink, linkRef }) {
+  addLinksToUser({ spotlightLabel, spotlightLink, collectedLinks }) {
     const user = this.auth.currentUser;
       if (user) {
         return this.db.collection('users').doc(user.displayName).set({
           spotlightLabel: spotlightLabel,
           spotlightLink: spotlightLink,
-          links: linkRef.current,
+          links: collectedLinks
         });
       } else {
         console.log('not logged in')

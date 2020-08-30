@@ -64,7 +64,7 @@ export const Profile = styled.img`
 `;
 
 export const Link = styled(TextField)`
-  width: 90%;
+  width: 85%;
   position: relaitve;
   left: 30px;
   bottom: 10px;
@@ -89,4 +89,23 @@ export const ApplyButton = styled(Button)`
   float: right;
   width: 200px;
   height: 30px; 
+`
+
+export const Remove = styled.img`
+  position: relative;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+`
+
+export const RemoveButton = styled.button`
+  position: relative;
+  border: none;
+  outline: none;
+  background: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  left: 33px;
+  top: 17px;
 `
