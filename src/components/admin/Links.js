@@ -22,8 +22,6 @@ const Links = () => {
   const componentRef = useRef();
   const { width } = useContainerDimensions(componentRef);
 
-  console.log(formRef.current);
-
   useEffect(() => {
     if (!username) {
       firebase.getAuth().onAuthStateChanged(user => {
@@ -180,7 +178,7 @@ const Links = () => {
                 </a>
               </URLHandler>
               <PhoneOutline>
-                {/* <UserPreview userInfo={userInfo}/> */}
+                <UserPreview userInfo={{ username, linkRef, spotlightLabel, spotlightLink, pfpURL }}/>
               </PhoneOutline>
             </div>
           )}

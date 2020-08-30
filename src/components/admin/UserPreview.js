@@ -10,8 +10,7 @@ import{
 } from "../styledComponents/StyledUserPreview";
 
 const UserPreview = props => {
-  const { username, linkRef, spotlightLabel, spotlightLink, pfpURL, refresh } = props.userInfo;
-  console.log(`user preview receieved ${JSON.stringify(linkRef, null, 4)}`);
+  const { username, linkRef, spotlightLabel, spotlightLink, pfpURL } = props.userInfo;
   const linkAmount = linkRef.current ? Object.keys(linkRef.current).length : 0;
 
   const matchIcon = link => {
@@ -36,15 +35,15 @@ const UserPreview = props => {
     const linkCount = rowCount * 5;
     const lessThanFiveLinks = linkRef.current.length - linkCount ? true : false;
     const amountToFillRow = lessThanFiveLinks ? linkRef.current.length - linkCount : 5;
-    const linksArray = Object.values(linkRef.current);
-    const singleRow = Object.values(linksArray.slice(linkCount, linkCount + amountToFillRow)).map(link => {
+    const linksArray = linkRef.current;
+    const singleRow = linksArray.slice(linkCount, linkCount + amountToFillRow).map(link => {
       return (
-        <Col key={link} xs>
-          {matchIcon(link) && 
+        <Col key={link.id} xs>
+          {matchIcon(link.link) && 
             <SocialMediaIcon 
-              key={link}
-              onClick={() => window.location.replace(`//${link}`)} 
-              style={{background: `url(${require(`../../assets/images/social-media-icons/${matchIcon(link)}-icon.png`)})`, backgroundSize: 'cover', backgroundPosition: 'center'}} 
+              key={link.id}
+              onClick={() => window.location.replace(`//${link.link}`)} 
+              style={{background: `url(${require(`../../assets/images/social-media-icons/${matchIcon(link.link)}-icon.png`)})`, backgroundSize: 'cover', backgroundPosition: 'center'}} 
             />
           }
         </Col>
@@ -71,7 +70,6 @@ const UserPreview = props => {
 
   return (
     <React.Fragment>
-      {!refresh ? 
       <ProfileContainer>
         <Row>
           <Avatar src={pfpURL} alt="profile picture" />
@@ -85,9 +83,7 @@ const UserPreview = props => {
         <IconContainer>
           {loadIcons()}
         </IconContainer>
-      </ProfileContainer>
-      :
-      <h3 style={{textAlign: 'center'}}>Loading...</h3> }
+      </ProfileContainer>    
     </React.Fragment>
   )
 }
