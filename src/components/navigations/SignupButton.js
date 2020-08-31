@@ -10,6 +10,11 @@ const MyButton = styled(Button)({
   color: 'white',
   height: 37,
   padding: '0 20px',
+
+  '&:hover': {
+    background: "linear-gradient(135.2deg, #2B46FF 5.74%, #BD69FF 57.53%, #FE6C6C 108.23%);",
+  }
+
 });
 
 export default function SignupButton() {
