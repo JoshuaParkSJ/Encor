@@ -45,9 +45,9 @@ export const TextContainer2 = styled.div`
 
 
     @media (max-width: 960px) {
-        padding-top: 0px;
-        padding-left: 0px;
-        width: 100%;
+        padding-top: 10px;
+        padding-left: 30px;
+        width: 90%;
       
     }
 `;
@@ -79,16 +79,34 @@ export const Tagline = styled.h1`
   @media (max-width: 960px) {
     font-size: 2em;
   }
+
+  @media (max-width: 320px) {
+    font-size: 1.5em;
+    position: center;
+  
+  }
 `;
 
 export const BannerAnimation = styled.div`
   width: 550px;
   text-align: center;
   padding-left: 5%;
+
+  @media (max-width: 1042px) {
+    width: 450px;
+    padding-left: 40px;
+  }
   @media (max-width: 960px) {
       width: 400px;
       padding-left: 0px;
     }
+
+  @media (max-width: 320px) {
+      width: 290px;
+      padding-left: 0px;
+    }
+
+
 `;
 
 export const BannerAnimation2 = styled.div`
@@ -99,6 +117,12 @@ export const BannerAnimation2 = styled.div`
   @media (max-width: 960px) {
       width: 400px;
       padding-left: 0px
+    }
+
+    @media (max-width: 320px) {
+      width: 290px;
+      
+
     }
 `;
 
@@ -126,5 +150,16 @@ export const DynamicURLAnimation =  styled.div`
     }
     .border-gradient-purple {
       border-image-source: linear-gradient;
-   
+`
+
+export const URLPlaceholder = styled.img`
+      width: 350px; 
+      padding-top: 10px;
+
+
+      @media (max-width: 320px) {
+        width: 280px;
+      }
+  
+
 `
