@@ -152,7 +152,6 @@ const Links = () => {
           <Title>Profile</Title>
           <Profile src={pfpURL} />
           <input type="file" id="file" ref={fileRf} onChange={e => fileUpload(e)} style={{display: "none"}}/>
-      
           <UploadImage className="secondary" onClick={clickRef}>Upload Image</UploadImage> 
           <RemoveImage className="white" onClick={() => firebase.pfpRemove()}>Remove</RemoveImage>
         </ProfileBox>
@@ -180,9 +179,9 @@ const Links = () => {
                   encor.cc/{username}
                 </a>
               </URLHandler>
-              <PhoneOutline>
-                <UserPreview userInfo={{ username, linkRef, spotlightLabel, spotlightLink, pfpURL }}/>
-              </PhoneOutline>
+                <PhoneOutline>
+                  <UserPreview userInfo={{ username, linkRef, spotlightLabel, spotlightLink, pfpURL }}/>
+                </PhoneOutline>
               </UserPreviewBox>
             </div>
           )}

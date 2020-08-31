@@ -22,8 +22,6 @@ const AdminCustomizer = () => {
         <Link label={username} disabled />
         <Free>Free</Free>
         <Pro className="secondary">upgrade PRO</Pro>
-      <Title>Actions</Title>
-        <Delete className="tertiary1">Delete</Delete>
     </SettingsBox>
   );
 }

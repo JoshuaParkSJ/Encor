@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import firebase from '../../firebaseconfig';
 import { Row, Col } from 'react-flexbox-grid';
 import { GlobalGray } from '../styledComponents/GlobalStyle';
 import { Navbar, StyledTabs, Logo, FlexMarginedDiv } from '../styledComponents/StyledAdmin';
-import Encor from '../../assets/images/logo.png';
+import { InvisibleButton } from '../styledComponents/StyledHeaderFooter';
+import Encor from '../../assets/images/logo.svg';
 import Links from './Links';
 import Design from './Design';
 import Settings from './Settings';
@@ -55,7 +56,7 @@ const Admin = () => {
         <GlobalGray />
         <Row style={{ background: 'white', position: 'relative', top: '-7px'}}>
           <FlexMarginedDiv>
-            <Logo src={Encor} alt="Encor logo" />
+            <InvisibleButton onClick={() => window.location.href = '/'}><Logo src={Encor} alt="Encor logo"/></InvisibleButton>
             <Navbar>
               <StyledTabs className={activeTab.links} value='links' onClick={handleClick} style={{ background: 'white'}}>Links</StyledTabs>
               <StyledTabs className={activeTab.design} value='design' onClick={handleClick} style={{ background: 'white'}}>Design</StyledTabs>
