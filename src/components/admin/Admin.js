@@ -7,6 +7,7 @@ import Encor from '../../assets/images/logo.png';
 import Links from './Links';
 import Design from './Design';
 import Settings from './Settings';
+import Grid from '@material-ui/core/Grid';
 
 const Admin = () => {  
   const [username, setUsername] = useState('');
@@ -50,26 +51,29 @@ const Admin = () => {
 
   return (
     <React.Fragment>
-      <GlobalGray />
-      <Row style={{ background: 'white', position: 'relative', top: '-7px'}}>
-        <FlexMarginedDiv>
-          <Logo src={Encor} alt="Encor logo" />
-          <Navbar>
-            <StyledTabs className={activeTab.links} value='links' onClick={handleClick}>Links</StyledTabs>
-            <StyledTabs className={activeTab.design} value='design' onClick={handleClick}>Design</StyledTabs>
-            <StyledTabs className={activeTab.settings} value='settings' onClick={handleClick}>Settings</StyledTabs>
-          </Navbar>
-        </FlexMarginedDiv>
-      </Row>
-      <Row style={{ background: '#F2F2F2' }}>
-        <FlexMarginedDiv>
-          <Col xs>
-            {activeTab.links === 'active' ? <Links /> : null}
-            {activeTab.design === 'active' ? <Design /> : null}
-            {activeTab.settings === 'active' ? <Settings /> : null}
-          </Col>
-        </FlexMarginedDiv>
-      </Row>
+      <Grid containter>      
+        <GlobalGray />
+        <Row style={{ background: 'white', position: 'relative', top: '-7px'}}>
+          <FlexMarginedDiv>
+            <Logo src={Encor} alt="Encor logo" />
+            <Navbar>
+              <StyledTabs className={activeTab.links} value='links' onClick={handleClick} style={{ background: 'white'}}>Links</StyledTabs>
+              <StyledTabs className={activeTab.design} value='design' onClick={handleClick} style={{ background: 'white'}}>Design</StyledTabs>
+              <StyledTabs className={activeTab.settings} value='settings' onClick={handleClick} style={{ background: 'white'}}>Settings</StyledTabs>
+            </Navbar>
+          </FlexMarginedDiv>
+        </Row>
+        <Row style={{ background: '#F2F2F2' }}>
+          <FlexMarginedDiv>
+            <Col xs>
+              {activeTab.links === 'active' ? <Links /> : null}
+              {activeTab.design === 'active' ? <Design /> : null}
+              {activeTab.settings === 'active' ? <Settings /> : null}
+            </Col>
+          </FlexMarginedDiv>
+        </Row>
+      </Grid>
+
     </React.Fragment>
   );
 }

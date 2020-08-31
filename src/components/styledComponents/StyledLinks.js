@@ -5,7 +5,54 @@ import TextField from '@material-ui/core/TextField';
 export const ProfileBox = styled.div`
   height: auto;
   width: 600px;
-  position: relative;
+  position: center;
+  
+  border-radius: 10px;
+  background: #FFFFFF;
+
+  @media (max-width: 980px) {
+    height: auto;
+    width: 400px;
+    right: 0px;
+  }
+
+  @media (max-width: 414px) {
+    width: 350px;
+
+  }
+
+`;
+
+export const UserPreviewBox = styled.div`
+height: auto;
+width: 600px;
+position: center;
+right: 100px;
+border-radius: 10px;
+background: #FFFFFF;
+padding-top: 10px;
+padding-bottom: 10px;
+
+@media (max-width: 980px) {
+  height: auto;
+  width: 400px;
+  right: 0px;
+}
+
+@media (max-width: 414px) {
+  width: 350px;
+
+}
+
+`
+
+export const LinkBox = styled.div`
+  height: auto;
+  width: 600px;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  position: center;
   right: 100px;
   border-radius: 10px;
   background: #FFFFFF;
@@ -14,22 +61,13 @@ export const ProfileBox = styled.div`
     width: 400px;
     right: 0px;
   }
-`;
 
-export const LinkBox = styled.div`
-  height: auto;
-  width: 600px;
-  padding-bottom: 40px;
-  margin-bottom: 20px;
-  margin-top: 30px;
-  position: relative;
-  right: 100px;
-  border-radius: 10px;
-  background: #FFFFFF;
-  @media (max-width: 980px) {
+  @media (max-width: 414px) {
     height: auto;
-    width: 400px;
+    width: 350px;
     right: 0px;
+    margin: auto;
+    padding-top: 10px;
   }
 `;
 
@@ -39,6 +77,12 @@ export const UploadImage = styled(Button)`
   position: relative; 
   top: -100px;
   right: -120px;
+
+  @media (max-width: 980px) {
+    width: 100px;
+    right: -60px;
+    font-size: 12px;
+  }
 `;
 
 export const RemoveImage = styled(Button)`
@@ -47,6 +91,13 @@ export const RemoveImage = styled(Button)`
   position: relative; 
   top: -50px; 
   right: 80px;
+
+  @media (max-width: 980px) {
+    width: 100px;
+    right: 40px;
+    font-size: 12px;
+  }
+
 `;
 
 export const Title = styled.h1`
@@ -61,6 +112,11 @@ export const Profile = styled.img`
   margin-bottom: 30px;
   width: 100px;
   height: 100px;
+  object-fit: cover;
+
+  @media (max-width: 980px) {
+    margin-left: 50px;
+  }
 `;
 
 export const Link = styled(TextField)`
@@ -89,6 +145,12 @@ export const ApplyButton = styled(Button)`
   float: right;
   width: 200px;
   height: 30px; 
+
+  @media (max-width: 980px) {
+    width: 100px;
+    left: 170px;
+    font-size: 12px;
+  }
 `
 
 export const Remove = styled.img`

@@ -6,8 +6,9 @@ import Add from '../../assets/images/add.png';
 import Multiply from '../../assets/images/remove.png';
 import UserPreview from './UserPreview.js';
 import useContainerDimensions from '../../utilities/useContainerDimensions';
-import { ProfileBox, Profile, LinkBox, UploadImage, RemoveImage, Title, Link, AddLinkButton, ApplyButton, Remove, RemoveButton } from '../styledComponents/StyledLinks';
+import { ProfileBox, Profile, LinkBox, UserPreviewBox, UploadImage, RemoveImage, Title, Link, AddLinkButton, ApplyButton, Remove, RemoveButton } from '../styledComponents/StyledLinks';
 import { PhoneOutline, URLHandler } from '../styledComponents/StyledAdmin';
+import SecondaryBtn from '../Buttons/SecondaryBtn';
 
 const Links = () => {
   const [username, setUsername] = useState(null);
@@ -151,7 +152,8 @@ const Links = () => {
           <Title>Profile</Title>
           <Profile src={pfpURL} />
           <input type="file" id="file" ref={fileRf} onChange={e => fileUpload(e)} style={{display: "none"}}/>
-          <UploadImage className="secondary" onClick={clickRef}>Upload Image</UploadImage>
+      
+          <UploadImage className="secondary" onClick={clickRef}>Upload Image</UploadImage> 
           <RemoveImage className="white" onClick={() => firebase.pfpRemove()}>Remove</RemoveImage>
         </ProfileBox>
         <LinkBox>
@@ -172,6 +174,7 @@ const Links = () => {
         <Col>
           {width && (
             <div>
+              <UserPreviewBox>
               <URLHandler >
                 <a href={`//www.encor.cc/${username}`} target="_blank" rel="noopener noreferrer" style={{color: 'white'}}>
                   encor.cc/{username}
@@ -180,6 +183,7 @@ const Links = () => {
               <PhoneOutline>
                 <UserPreview userInfo={{ username, linkRef, spotlightLabel, spotlightLink, pfpURL }}/>
               </PhoneOutline>
+              </UserPreviewBox>
             </div>
           )}
         </Col>

@@ -6,10 +6,10 @@ export const SettingsBox = styled.div`
   width: 600px;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  position: relative;
   right: 100px;
   border-radius: 10px;
   background: #FFFFFF;
+  position: center;
   @media (max-width: 980px) {
     height: auto;
     width: 400px;
@@ -55,7 +55,7 @@ export const Delete = styled(Button)`
   margin-bottom: 50px;
   position: relative;
   top: 50px;
-  left: -180px;
+  left: 0px;
   color: white;
   width: 150px;
 `;

@@ -4,7 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 export const DesignBox = styled.div`
   height: auto;
   width: 600px;
-  position: relative;
+  position: center;
   right: 100px;
   border-radius: 10px;
   background: #FFFFFF;

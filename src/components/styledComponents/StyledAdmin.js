@@ -7,20 +7,23 @@ export const URLHandler = styled.div`
   border-radius: 20px;
   border: transparent;
   height: 25px;
-  margin-left: 60px;
+  margin: 0 auto;
   margin-top: 15px;
   background: linear-gradient(135.2deg, #4E64F8 5.74%, #CA8CFB 61.35%, #FB8C8C 108.23%);
   box-shadow: 0px 4px 8px 2px rgba(218, 171, 255, 0.36);  
   border-width: 1px;
   border-style: solid;
+ 
+
   @media (max-width: 980px) {
-    width: 180px;
+    width: 250px;
   }
+
 `
 
 export const FlexMarginedDiv = styled.div`
   display: flex;
-  margin: auto;
+  margin: 0 auto;
 `
 
 export const Logo = styled.img`
@@ -37,17 +40,16 @@ export const PhoneOutline = styled.div`
   border-radius: 20px;
   width: 230px;
   height: 408.89px;
+  margin: 0 auto;
   margin-top: 42px;
-  @media (max-width: 980px) {
-    flex-direction: column;
-    width: 184px;
-    height: 327px;
-  }
+  margin-bottom: 50px;
+  
+
 `;
 
 export const Navbar = styled.nav`
   display: flex;
-  width: 400px;
+  width: 100%;
 `;
 
 export const StyledTabs = styled.button.attrs(props => ({
