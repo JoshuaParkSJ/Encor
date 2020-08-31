@@ -4,7 +4,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import firebase from '../../firebaseconfig';
 import Footer from '../footer/Footer';
 import { Logo, Header, HeaderLink, ContentBox, Text, SignupButton, InvisibleButton } from '../../components/styledComponents/StyledSignUpIn';
-import Encor from '../../assets/images/logo.png';
+import Encor from '../../assets/images/logo.svg';
 
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
