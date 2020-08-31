@@ -3,15 +3,18 @@ import { Route } from "react-router-dom";
 import { Col } from 'react-flexbox-grid';
 import firebase from '../../firebaseconfig';
 import Footer from '../navigations/Footer';
-import { Logo, Header, HeaderLink, ContentBox, Text, SignupButton, InvisibleButton } from '../../components/styledComponents/StyledSignUpIn';
+import { Logo, HeaderLink, ContentBox, Text, SignupButton, InvisibleButton } from '../../components/styledComponents/StyledSignUpIn';
 import Encor from '../../assets/images/logo.svg';
+import Header from '../navigations/Navbar';
 
 import TextField from '@material-ui/core/TextField';
+
 
 const Register = () => {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
 
   const login = async () => {
     let logged = false;
@@ -42,6 +45,7 @@ const Register = () => {
         <TextField
           style={{marginTop: '10px'}}
           variant="standard"
+          margin='normal'
           required
           fullWidth
           id="usernameOrEmail"

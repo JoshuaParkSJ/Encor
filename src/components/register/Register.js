@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Route } from "react-router-dom";
 import { Row, Col } from 'react-flexbox-grid';
 import firebase from '../../firebaseconfig';
-import Footer from '../footer/Footer';
-import { Logo, Header, HeaderLink, ContentBox, Text, SignupButton, InvisibleButton } from '../../components/styledComponents/StyledSignUpIn';
+import Footer from '../navigations/Footer';
+import { Logo, HeaderLink, ContentBox, Text, SignupButton, InvisibleButton, Text2 } from '../../components/styledComponents/StyledSignUpIn';
 import Encor from '../../assets/images/logo.svg';
+import Header from '../navigations/Navbar';
 
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -95,8 +96,8 @@ const Register = () => {
       <Row style={{marginTop: '10px'}}>
         <div style={{margin: 'auto'}}>
           <Row>
-            <Checkbox color="primary" />
-            <Text>I agree to <strong><a href='/l/terms' style={{textDecoration: 'none'}}>Terms of Services</a></strong></Text>
+            <Checkbox color="primary" style={{height: '0px', paddingTop: '20px'}} />
+            <Text2>I agree to <strong><a href='/l/terms' style={{textDecoration: 'none'}}>Terms of Services</a></strong></Text2>
           </Row>
         </div>
       </Row>

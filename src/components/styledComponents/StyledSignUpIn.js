@@ -5,8 +5,9 @@ import Button from './Button';
 export const Logo = styled.img`
   width: 100px;
   height: 23px;
-  margin: 30px;
-  margin-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  position: center;
 `
 
 export const HeaderLink = styled.a`
@@ -48,10 +49,11 @@ export const Header = styled(Row)`
   display: 'flex';
 `
 export const ContentBox = styled.div`
-  position: relative;
+  position: center;
   text-align: center;
-  margin: auto;
-  width: 500px;
+  margin: 100px;
+  margin-left: 25%;
+  margin-right: 25%;
   padding-bottom: 50px;
 `
 
@@ -62,8 +64,17 @@ export const Text = styled.h1`
   font-size: 15px;
   line-height: 140.62%;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
+  padding-bottom: 100px;
 `
-
+export const Text2 = styled.h1`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 140.62%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
+  padding-bottom: 0px;
+`
 export const InvisibleButton = styled.button`
   outline: none;
   background: none;

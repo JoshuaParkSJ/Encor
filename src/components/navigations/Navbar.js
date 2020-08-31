@@ -88,9 +88,9 @@ class ResAppBar extends Component{
              onKeyDown={()=>{this.setState({drawer:false})}}>
 
             <List className = {this.props.classes.list}>
-               <ListItem key = {1} button divider className = {this.props.classes.listItem}> Features </ListItem>
-              <ListItem key = {2} button divider className = {this.props.classes.listItem}> Log In </ListItem>
-               <ListItem key = {3} button divider className = {this.props.classes.listItem}> Free Sign In </ListItem>
+               <ListItem key = {1} button divider className = {this.props.classes.listItem} onClick={() => window.location = '/l/plans'}> Plans </ListItem>
+              <ListItem key = {2} button divider className = {this.props.classes.listItem} onClick={() => window.location = '/login'}> Log In </ListItem>
+               <ListItem key = {3} button divider className = {this.props.classes.listItem} onClick={() => window.location = '/register'}> Free Sign In </ListItem>
              </List>
              <div  style={{height: 30 + 'px', width: 30 + 'px', paddingLeft: 85 + 'px', bottom: 0 + 'px', position: 'absolute', paddingBottom: 10 + 'px'}}>
             <Logo/>
@@ -116,11 +116,11 @@ class ResAppBar extends Component{
           <Typography  className = {classes.padding} color="inherit" >
             <Button onClick={() => window.location = '/l/plans'}> Plans </Button>
           </Typography>
-          <Typography onClick={() => window.location = '/login'} className = {classes.padding} color="inherit">
-            <Button> Login </Button>
+          <Typography className = {classes.padding} color="inherit">
+            <Button onClick={() => window.location = '/login'} > Login </Button>
           </Typography>
           <Typography  variant={"h6"} className = {classes.padding} color="inherit" >
-            <SignupButton/>
+            <SignupButton onClick={() => window.location = '/register'}/>
           </Typography>
         </Toolbar>
       </AppBar>
