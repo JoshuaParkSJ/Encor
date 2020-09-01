@@ -31,8 +31,10 @@ export const Username = styled.div`
 
 export const SpotlightLink = styled.a`
   margin: auto;
+  padding: 5px;
   font-size: 11px;
   font-weight: 600;
+  text-decoration: none;
   color: #1D1D1D;
   background: white;
   border-radius: 20px;
@@ -40,7 +42,6 @@ export const SpotlightLink = styled.a`
   border-width: 1px;
   border-style: solid;
   width: 150px;
-  height: 30px;
   margin-top: 20px;
 `
 export const Links = styled.div`

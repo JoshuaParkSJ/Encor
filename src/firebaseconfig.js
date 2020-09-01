@@ -73,7 +73,7 @@ class Firebase {
     return await this.db.collection("users").doc(username).get().then(doc => {
       if (doc.exists) {
         return { 
-          exists: true, 
+          username: username, 
           links: doc.data().links, 
           spotlightLabel: doc.data().spotlightLabel, 
           spotlightLink: doc.data().spotlightLink 
@@ -107,33 +107,12 @@ class Firebase {
   }
 
   pfpUpload(file, username) {
-    let downloadurl = null;
-    const onResolve = () => {
-      // existing pfp
-      this.storage.ref('profile_pictures/' + username + 'pfp').delete().then(() => {
-        onReject();
-      }).catch(error => {
-        console.log(error);
-      })
-    }
-    const onReject = error => {
-      // no pfp
-      const task = this.storage.ref(`profile_pictures/${username}/pfp`).put(file);
-      task.on("state changed", error => {
-        console.log(error);
-      },
-      () => {
-        downloadurl = this.storage.ref(`profile_pictures/${username}/pfp`).getDownloadURL();
-      });
-    };
-    this.storage.ref(`profile_pictures/${username}/pfp`).getDownloadURL().then(onResolve, onReject);
-    return downloadurl;
+    this.storage.ref(`profile_pictures/${username}/pfp`).put(file);
+    return this.storage.ref(`profile_pictures/${username}/pfp`).getDownloadURL();
   }
   
   pfpRemove(username) {
-    this.storage.ref(`profile_pictures/${username}/pfp`).delete().then().catch(error => {
-      console.log(error);
-    })
+    this.storage.ref().child(`profile_pictures/${username}/pfp`).delete(); //.then() to continue
   }
 
   pfpGet(username) {

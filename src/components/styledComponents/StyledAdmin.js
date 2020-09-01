@@ -1,25 +1,5 @@
 import styled from 'styled-components';
-
-export const URLHandler = styled.div`
-  font-family: roboto;
-  text-align: center;
-  width: 400px;
-  border-radius: 20px;
-  border: transparent;
-  height: 25px;
-  margin: 0 auto;
-  margin-top: 15px;
-  background: linear-gradient(135.2deg, #4E64F8 5.74%, #CA8CFB 61.35%, #FB8C8C 108.23%);
-  box-shadow: 0px 4px 8px 2px rgba(218, 171, 255, 0.36);  
-  border-width: 1px;
-  border-style: solid;
- 
-
-  @media (max-width: 980px) {
-    width: 250px;
-  }
-
-`
+import button from '../styledComponents/Button.js';
 
 export const FlexMarginedDiv = styled.div`
   display: flex;
@@ -32,20 +12,6 @@ export const Logo = styled.img`
   margin-top: 17px;
   margin-right: 20px;
 `
-
-export const PhoneOutline = styled.div`
-  background: #FFFFFF;
-  border: 10px solid #272727;
-  box-sizing: border-box;
-  border-radius: 20px;
-  width: 230px;
-  height: 408.89px;
-  margin: 0 auto;
-  margin-top: 42px;
-  margin-bottom: 50px;
-  
-
-`;
 
 export const Navbar = styled.nav`
   display: flex;
@@ -87,4 +53,9 @@ export const StyledTabs = styled.button.attrs(props => ({
     border-bottom: 2px solid #7E74F9;
     outline: none;
   }
+`
+
+export const LogoutButton = styled(button)`
+  margin-top: 10px;
+  padding: 12px;
 `
