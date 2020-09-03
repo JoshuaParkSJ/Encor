@@ -90,7 +90,7 @@ class ResAppBar extends Component{
             <List className = {this.props.classes.list}>
                <ListItem key = {1} button divider className = {this.props.classes.listItem} onClick={() => window.location = '/l/plans'}> Plans </ListItem>
               <ListItem key = {2} button divider className = {this.props.classes.listItem} onClick={() => window.location = '/login'}> Log In </ListItem>
-               <ListItem key = {3} button divider className = {this.props.classes.listItem} onClick={() => window.location = '/register'}> Free Sign In </ListItem>
+               <ListItem key = {3} button divider className = {this.props.classes.listItem} onClick={() => window.location = '/register'}> Free Sign Up </ListItem>
              </List>
              <div  style={{height: 30 + 'px', width: 30 + 'px', paddingLeft: 85 + 'px', bottom: 0 + 'px', position: 'absolute', paddingBottom: 10 + 'px'}}>
             <Logo/>
