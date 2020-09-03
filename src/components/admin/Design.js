@@ -5,6 +5,7 @@ import Add from '../../assets/images/add.png';
 const AdminCustomizer = () => {
   return (
       <DesignBox>
+        <h1 style={{ textAlign: 'center', fontFamily: 'Roboto', position: 'relative', top: '20px' }}>Available for Pro</h1>
         <StyledGrid>
           <StyledRow>
             <StyledCol xs>

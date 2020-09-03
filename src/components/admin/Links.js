@@ -5,10 +5,8 @@ import MockAvatar from '../../assets/images/mockavatar.jpg'
 import Add from '../../assets/images/add.png';
 import Multiply from '../../assets/images/remove.png';
 import UserPreview from './UserPreview.js';
-import useContainerDimensions from '../../utilities/useContainerDimensions';
-import { ProfileBox, Profile, LinkBox, UserPreviewBox, UploadImage, RemoveImage, Title, Link, AddLinkButton, ApplyButton, Remove, RemoveButton } from '../styledComponents/StyledLinks';
-import { PhoneOutline, URLHandler } from '../styledComponents/StyledAdmin';
-import SecondaryBtn from '../Buttons/SecondaryBtn';
+import { ProfileBox, Profile, LinkBox, UserPreviewBox, UploadImage, RemoveImage, Title, Link, AddLinkButton, ApplyButton, Remove, RemoveButton, MarginDiv, URLHandler, PhoneOutline } from '../styledComponents/StyledLinks';
+import useWindowDimensions from '../../utilities/useWindowDimensions';
 
 const Links = () => {
   const [username, setUsername] = useState(null);
@@ -20,8 +18,7 @@ const Links = () => {
   const fileRf = useRef(null);
   const formRef = useRef([]);
   const linkRef = useRef([]);
-  const componentRef = useRef();
-  const { width } = useContainerDimensions(componentRef);
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     if (!username) {
@@ -133,9 +130,17 @@ const Links = () => {
     } else {
       const file = fileUploaded.files[0];
       console.log("p", "File " + file.name + " is " + file.size + " bytes in size");
-      firebase.pfpUpload(fileUploaded.files[0], firebase.getCurrentUsername());
+      firebase.pfpUpload(fileUploaded.files[0], username).then(profilePicLink => {
+        setPfpURL(profilePicLink);
+        window.location.href = "/admin";
+      })
     }
-  };
+  }
+
+  const pfpRemove = () => {
+    setPfpURL(MockAvatar);
+    firebase.pfpRemove(username);
+  }
 
   const render = () => {
     if (linkRef.current) {
@@ -146,47 +151,66 @@ const Links = () => {
   }
 
   return (
-    <div ref={componentRef}>
-      <Col>
-        <ProfileBox>
-          <Title>Profile</Title>
-          <Profile src={pfpURL} />
-          <input type="file" id="file" ref={fileRf} onChange={e => fileUpload(e)} style={{display: "none"}}/>
-          <UploadImage className="secondary" onClick={clickRef}>Upload Image</UploadImage> 
-          <RemoveImage className="white" onClick={() => firebase.pfpRemove()}>Remove</RemoveImage>
-        </ProfileBox>
-        <LinkBox>
-          <Row style={{marginLeft: '10px'}}>
-            <Title>Link</Title>
-            <ApplyButton className='secondary' onClick={() => setStartCollect(true)}>Apply Changes</ApplyButton>
-            <Link label="Website Title" onChange={e => setSpotlightLabel(e.target.value)} value={spotlightLabel} id="spotlightLabel" />
-            <br /><br /><br />
-            <Link label="Website URL" onChange={e => setSpotlightLink(e.target.value)} value={spotlightLink} id="spotlightLink" />
-            <Title>Social</Title>
-          </Row>
-          <AddLinkButton onClick={() => AddLinks()}>
-            <img src={Add} alt="add link button" style={{width: '15px', height: '15px'}} />
-          </AddLinkButton>
-          <div style={{marginTop: '-30px'}}>{render()}</div>
-        </LinkBox>
-        </Col>
+    <React.Fragment>
+      <Row>
         <Col>
-          {width && (
-            <div>
-              <UserPreviewBox>
-              <URLHandler >
-                <a href={`//www.encor.cc/${username}`} target="_blank" rel="noopener noreferrer" style={{color: 'white'}}>
-                  encor.cc/{username}
-                </a>
-              </URLHandler>
-                <PhoneOutline>
-                  <UserPreview userInfo={{ username, linkRef, spotlightLabel, spotlightLink, pfpURL }}/>
-                </PhoneOutline>
-              </UserPreviewBox>
-            </div>
-          )}
+          <ProfileBox>
+            <Title>Profile</Title>
+            <Profile src={pfpURL} />
+            <input type="file" id="file" ref={fileRf} onChange={e => fileUpload(e)} style={{display: "none"}}/>
+            <UploadImage className="secondary" onClick={clickRef}>Upload Image</UploadImage> 
+            <RemoveImage className="white" onClick={() => pfpRemove()}>Remove</RemoveImage>
+          </ProfileBox>
+          <LinkBox>
+            <Row style={{marginLeft: '10px'}}>
+              <Title>Link</Title>
+              <ApplyButton className='secondary' onClick={() => setStartCollect(true)}>Apply Changes</ApplyButton>
+              <Link label="Website Title" onChange={e => setSpotlightLabel(e.target.value)} value={spotlightLabel} id="spotlightLabel" />
+              <br /><br /><br />
+              <Link label="Website URL" onChange={e => setSpotlightLink(e.target.value)} value={spotlightLink} id="spotlightLink" />
+              <Title>Social</Title>
+            </Row>
+            <AddLinkButton onClick={() => AddLinks()}>
+              <img src={Add} alt="add link button" style={{width: '15px', height: '15px'}} />
+            </AddLinkButton>
+            <div style={{marginTop: '-30px'}}>{render()}</div>
+            <h5 style={{ textAlign: 'center' }}>Please enter as www.something.com</h5>
+          </LinkBox>
         </Col>
-      </div>
+          {width > 732 && (
+            <Col>
+              <MarginDiv>
+                <UserPreviewBox>
+                <URLHandler >
+                  <a href={`//www.encor.cc/${username}`} target="_blank" rel="noopener noreferrer" style={{color: 'white'}}>
+                    encor.cc/{username}
+                  </a>
+                </URLHandler>
+                  <PhoneOutline>
+                    <UserPreview userInfo={{ username, linkRef, spotlightLabel, spotlightLink, pfpURL }}/>
+                  </PhoneOutline>
+                </UserPreviewBox>
+              </MarginDiv>
+            </Col>
+          )}
+          </Row>
+          {width < 733 && (
+            <Row>
+              <MarginDiv>
+                <UserPreviewBox>
+                  <URLHandler >
+                    <a href={`//www.encor.cc/${username}`} target="_blank" rel="noopener noreferrer" style={{color: 'white'}}>
+                      encor.cc/{username}
+                    </a>
+                  </URLHandler>
+                  <PhoneOutline>
+                    <UserPreview userInfo={{ username, linkRef, spotlightLabel, spotlightLink, pfpURL }}/>
+                  </PhoneOutline>
+                </UserPreviewBox>
+              </MarginDiv>
+            </Row>
+          )}
+    </React.Fragment>
   );
 }
 

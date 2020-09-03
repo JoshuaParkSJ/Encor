@@ -15,16 +15,22 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(false);
+  const [pwError, setPwError] = useState(false);
 
   const onRegister = async () => {
     if (username && email && password) {
-      try {
-        await firebase.register(username, email, password);
-        await firebase.login(email, password);
-        firebase.createUserDB();
-      } catch (error) {
-        console.log(error.message);
+      if (password === confirmPassword) {
+        try {
+          await firebase.register(username, email, password);
+          await firebase.login(email, password);
+          firebase.createUserDB();
+        } catch (error) {
+          console.log(error.message);
+        }
+      } else {
+        setPwError(true);
       }
     }
   };
@@ -78,7 +84,7 @@ const Register = () => {
             type="password"
             id="password"
             autoComplete="current-password"
-            onChnage={e => {setPassword(e.target.value)}}
+            onChange={e => {setPassword(e.target.value)}}
           />
           <TextField
             style={{marginTop: '10px'}}
@@ -89,7 +95,7 @@ const Register = () => {
             label="Confirm Password"
             type="password"
             id="confirmPassword"
-            autoComplete="current-password"
+            onChange={e => {setConfirmPassword(e.target.value)}}
           />
       <br />
       <br />
@@ -118,6 +124,7 @@ const Register = () => {
         Sign Up
       </SignupButton>
       {error && <Text style={{color: 'red'}}>Please enter all fields</Text> }
+      {pwError && <Text style={{color: 'red'}}>Passwords are not matching</Text> }
       </ContentBox>
       <br />
       <br />
