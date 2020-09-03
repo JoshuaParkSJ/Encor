@@ -74,7 +74,6 @@ const Links = () => {
   useEffect(() => {
     if (refresh) {
       setRefresh(false);
-      console.log('hi');
       window.location.href = "/admin";
     }
   }, [refresh]);
@@ -138,7 +137,7 @@ const Links = () => {
         return <RenderLink key={link.id} id={link.id} />;
       });
       // render formRef
-      setRenderMap(formRef.current);
+      setFormState(formRef.current);
     }
     return (
       <form noValidate autoComplete="off">
