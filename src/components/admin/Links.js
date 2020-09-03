@@ -15,6 +15,7 @@ const Links = () => {
   const [pfpURL, setPfpURL] = useState(MockAvatar);
   const [startCollect, setStartCollect] = useState(false);
   const [renderMap, setRenderMap] = useState(null);
+  const [refresh, setRefresh] = useState(false);
   const [formState, setFormState] = useState([]);
   const fileRf = useRef(null);
   const formRef = useRef([]);
@@ -45,17 +46,41 @@ const Links = () => {
   }, [username])
 
   useEffect(() => {
-    if (startCollect) {
-      const collectedLinks = linkRef.current;
-      firebase.addLinksToUser({ spotlightLabel, spotlightLink, collectedLinks }).then(() => {
+    // in case user is not loaded yet and tries to apply changes, do && username
+    if (startCollect && username) {
+      let collectedLinks = [];
+      let collectedSpotlightLabel = '';
+      let collectedSpotlightLink = '';
+      if (spotlightLabel) {
+        collectedSpotlightLabel = spotlightLabel;
+      }
+      if (spotlightLink) {
+        collectedSpotlightLink = spotlightLink;
+      }
+      if (collectedLinks) {
+        collectedLinks = linkRef.current;
+      }
+      firebase.getDB().collection('users').doc(username).set({
+        spotlightLabel: collectedSpotlightLabel,
+        spotlightLink: collectedSpotlightLink,
+        links: collectedLinks
+      }).then(() => {
         setStartCollect(false);
-      });
+      })
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startCollect])
 
+  useEffect(() => {
+    if (refresh) {
+      setRefresh(false);
+      console.log('hi');
+      window.location.href = "/admin";
+    }
+  }, [refresh]);
+
   const AddLinks = (dataSource, loadComplete) => {
-    if (dataSource === 'firebase' && !loadComplete) {
+    if (dataSource === 'firebase') {
       formRef.current = [ ...formRef.current, <RenderLink key={formRef.current.length} id={formRef.current.length} />];
     }
     if (dataSource === 'firebase' && loadComplete) {
@@ -142,10 +167,13 @@ const Links = () => {
     } else {
       const file = fileUploaded.files[0];
       console.log("p", "File " + file.name + " is " + file.size + " bytes in size");
-      firebase.pfpUpload(fileUploaded.files[0], username).then(profilePicLink => {
-        setPfpURL(profilePicLink);
-        window.location.href = "/admin";
-      })
+      const task = firebase.getStorage().ref(`profile_pictures/${username}/pfp`).put(fileUploaded.files[0]);
+      task.on('state_changed', () => {
+        firebase.getStorage().ref(`profile_pictures/${username}/pfp`).getDownloadURL().then(profilePicLink => {
+          setRefresh(true);
+          setPfpURL(profilePicLink);
+        })
+      });
     }
   }
 
@@ -182,7 +210,6 @@ const Links = () => {
                 return child;
               })}
             </div>
-            <h5 style={{ textAlign: 'center' }}>Please enter as www.something.com</h5>
           </LinkBox>
         </Col>
           {width > 732 && (

@@ -39,7 +39,7 @@ const UserPreview = props => {
     const linksArray = linkRef.current;
     const singleRow = linksArray.slice(linkCount, linkCount + amountToFillRow).map(link => {
       let mediaName = matchIcon(link.link);
-      if (!(SupportedMedia.includes(link.link))) {
+      if (!(SupportedMedia.includes(mediaName))) {
         mediaName = 'placeholder';
       }
       return (

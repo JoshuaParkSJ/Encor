@@ -29,8 +29,8 @@ class Firebase {
     return this.db;
   }
 
-  async login(email, password) {
-    await this.auth.signInWithEmailAndPassword(email, password);
+  getStorage() {
+    return this.storage;
   }
 
   logout() {
@@ -90,11 +90,6 @@ class Firebase {
       return user;
     } 
     return null;
-  }
-
-  pfpUpload(file, username) {
-    this.storage.ref(`profile_pictures/${username}/pfp`).put(file);
-    return this.storage.ref(`profile_pictures/${username}/pfp`).getDownloadURL();
   }
   
   pfpRemove(username) {

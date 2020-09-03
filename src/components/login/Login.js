@@ -16,16 +16,12 @@ const Register = () => {
   const [password, setPassword] = useState('');
   
 
-  const login = async () => {
-    let logged = false;
-    try {
-      await firebase.login(email, password);
-      console.log(firebase.isLoggedIn());
-      logged = true;
-    } catch (e) {
-      logged = false;
-    }
-    logged ? window.location.href = '/admin' : setError(true);
+  const login = () => {
+    firebase.getAuth().signInWithEmailAndPassword(email, password).then(() => {
+      setError(false);
+      window.location.href = '/admin';
+    });
+    setError(true);
   }
 
   return (
