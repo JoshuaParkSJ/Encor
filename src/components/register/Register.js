@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from "react-router-dom";
 import { Row, Col } from 'react-flexbox-grid';
 import firebase from '../../firebaseconfig';
@@ -16,24 +16,56 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [agree, setAgree] = useState(false);
   const [error, setError] = useState(false);
   const [pwError, setPwError] = useState(false);
+  const [existError, setExistError] = useState(false);
+  const [existEmailError, setExistEmailError] = useState(false);
+  const [termsError, setTermsError] = useState(false);
+  const [registerReady, setRegisterReady] = useState(false);
 
-  const onRegister = async () => {
-    if (username && email && password) {
-      if (password === confirmPassword) {
-        try {
-          await firebase.register(username, email, password);
-          await firebase.login(email, password);
-          firebase.createUserDB();
-        } catch (error) {
-          console.log(error.message);
+  const onRegister = () => {
+    if (agree && username && email && password && password === confirmPassword) {
+      setTermsError(false);
+      setError(false);
+      setPwError(false);
+      firebase.getDB().collection('users').doc(username).get().then(doc => {
+        if (doc.exists) {
+          setExistError(true);
+        } else {
+          setExistError(false);
+          firebase.getAuth().createUserWithEmailAndPassword(email, password).then(user => {
+            firebase.getAuth().currentUser.updateProfile({
+              displayName: username,
+            });
+            setExistEmailError(false);
+            firebase.getDB().collection('users').doc(username).set({
+              links: [],
+            }).then(() => {
+              setRegisterReady(true);
+            })
+          }).catch(e => {
+            console.log(e);
+            setExistEmailError(true);
+          });
         }
-      } else {
-        setPwError(true);
-      }
+      }).catch(e => {
+        console.log(e);
+      })
+    } else if (!agree) {
+      setTermsError(true);
+    } else if (!(email && username && password)) {
+      setError(true);
+    } else if (password !== confirmPassword) {
+      setPwError(true);
     }
-  };
+  }
+
+  useEffect(() => {
+    if (registerReady) {
+      window.location.href = '/admin';
+    }
+  }, [registerReady])
 
   return (
     <React.Fragment>
@@ -102,7 +134,7 @@ const Register = () => {
       <Row style={{marginTop: '10px'}}>
         <div style={{margin: 'auto'}}>
           <Row>
-            <Checkbox color="primary" style={{height: '0px', paddingTop: '20px'}} />
+            <Checkbox color="primary" style={{height: '0px', paddingTop: '20px'}} onClick={() => setAgree(!agree)} />
             <Text2>I agree to <strong><a href='/l/terms' style={{textDecoration: 'none'}}>Terms of Services</a></strong></Text2>
           </Row>
         </div>
@@ -118,13 +150,15 @@ const Register = () => {
         onClick={e => {
           e.preventDefault(); 
           onRegister();
-          username && email && password ? window.location.href = '/admin' : setError(true);
         }}
       >
         Sign Up
       </SignupButton>
       {error && <Text style={{color: 'red'}}>Please enter all fields</Text> }
       {pwError && <Text style={{color: 'red'}}>Passwords are not matching</Text> }
+      {termsError && <Text style={{color: 'red'}}>Please agree with our terms of service</Text> }
+      {existError && <Text style={{color: 'red'}}>Username already exists</Text> }
+      {existEmailError && <Text style={{color: 'red'}}>User with email already exists</Text> }
       </ContentBox>
       <br />
       <br />

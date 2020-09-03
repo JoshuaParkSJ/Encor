@@ -51,6 +51,7 @@ const Links = () => {
   }, [startCollect])
 
   const AddLinks = () => {
+    console.log(formRef.current);
     formRef.current = [ ...formRef.current, <RenderLink key={formRef.current.length} id={formRef.current.length} />];
     setRenderMap(formRef.current);
   };

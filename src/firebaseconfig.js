@@ -21,6 +21,14 @@ class Firebase {
     this.storage = firebase.storage();
   }
 
+  getAuth() {
+    return this.auth;
+  }
+
+  getDB() {
+    return this.db;
+  }
+
   async login(email, password) {
     await this.auth.signInWithEmailAndPassword(email, password);
   }
@@ -28,13 +36,6 @@ class Firebase {
   logout() {
     return this.auth.signOut();
   }
-
-  async register(username, email, password) {
-    await this.auth.createUserWithEmailAndPassword(email, password);
-    return this.auth.currentUser.updateProfile({
-      displayName: username,
-    });
-  };
 
   // might need to change for private router
   onAuthStateChangedGetCurrentUser() {
@@ -56,17 +57,6 @@ class Firebase {
       } else {
         console.log('not logged in')
       }
-  }
-
-  createUserDB () {
-    this.auth.onAuthStateChanged(user => {
-      if (user && user.displayName) {
-        this.db.collection('users').doc(user.displayName).set({
-          links: null,
-        })
-        console.log('db created');
-      }
-    });
   }
 
   async getUserInfo (username) {
@@ -100,10 +90,6 @@ class Firebase {
       return user;
     } 
     return null;
-  }
-
-  getAuth() {
-    return this.auth;
   }
 
   pfpUpload(file, username) {
