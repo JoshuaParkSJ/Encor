@@ -15,6 +15,7 @@ const Links = () => {
   const [pfpURL, setPfpURL] = useState(MockAvatar);
   const [startCollect, setStartCollect] = useState(false);
   const [renderMap, setRenderMap] = useState(null);
+  const [formState, setFormState] = useState([]);
   const fileRf = useRef(null);
   const formRef = useRef([]);
   const linkRef = useRef([]);
@@ -31,7 +32,10 @@ const Links = () => {
           firebase.getUserInfo(user.displayName).then(result => {
             linkRef.current = result.links;
             if (result.links)
-            Object.values(result.links).forEach(() => AddLinks());
+            Object.values(result.links).forEach((_, index) => {
+              const loadComplete = Object.values(result.links).length === index + 1;
+              AddLinks('firebase', loadComplete);
+            });
             setSpotlightLabel(result.spotlightLabel);
             setSpotlightLink(result.spotlightLink);
           })
@@ -50,9 +54,16 @@ const Links = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startCollect])
 
-  const AddLinks = () => {
-    console.log(formRef.current);
-    formRef.current = [ ...formRef.current, <RenderLink key={formRef.current.length} id={formRef.current.length} />];
+  const AddLinks = (dataSource, loadComplete) => {
+    if (dataSource === 'firebase' && !loadComplete) {
+      formRef.current = [ ...formRef.current, <RenderLink key={formRef.current.length} id={formRef.current.length} />];
+    }
+    if (dataSource === 'firebase' && loadComplete) {
+      setFormState(formRef.current);
+    }
+    if (dataSource === 'user') {
+      setFormState([ ...formState, <RenderLink key={formState.length} id={formState.length} /> ]);
+    }
     setRenderMap(formRef.current);
   };
   
@@ -143,14 +154,6 @@ const Links = () => {
     firebase.pfpRemove(username);
   }
 
-  const render = () => {
-    if (linkRef.current) {
-      return linkRef.current.map(child => {
-        return <RenderLink key={child.id} id={child.id} />
-      });
-    }
-  }
-
   return (
     <React.Fragment>
       <Row>
@@ -171,10 +174,14 @@ const Links = () => {
               <Link label="Website URL" onChange={e => setSpotlightLink(e.target.value)} value={spotlightLink} id="spotlightLink" />
               <Title>Social</Title>
             </Row>
-            <AddLinkButton onClick={() => AddLinks()}>
+            <AddLinkButton onClick={() => AddLinks('user', false)}>
               <img src={Add} alt="add link button" style={{width: '15px', height: '15px'}} />
             </AddLinkButton>
-            <div style={{marginTop: '-30px'}}>{render()}</div>
+            <div style={{marginTop: '-30px'}}>
+              {formState.map(child => {
+                return child;
+              })}
+            </div>
             <h5 style={{ textAlign: 'center' }}>Please enter as www.something.com</h5>
           </LinkBox>
         </Col>
