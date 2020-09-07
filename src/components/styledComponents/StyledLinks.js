@@ -86,16 +86,16 @@ export const URLHandler = styled.div`
 `
 
 export const PhoneOutline = styled.div`
-  background: #FFFFFF;
+  background: black;
   border: 10px solid #272727;
   box-sizing: border-box;
   border-radius: 20px;
   width: 230px;
   height: 408.89px;
   margin: 0 auto;
-  margin-top: 42px;
+  margin-top: 40px;
   margin-bottom: 50px;
-  
+  padding:0p;
 
 `;
 

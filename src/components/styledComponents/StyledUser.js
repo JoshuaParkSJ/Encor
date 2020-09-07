@@ -9,7 +9,7 @@ export const ProfileContainer = styled(Grid)`
   width: 100%;
   height: 100%;
   position: absolute;
-  background: linear-gradient(148.51deg, #F8634E 1.8%, #FBD58C 40.75%, #FBE98C 74.84%, #F9FB8C 107.1%);
+  background: -webkit-linear-gradient(221.2deg, #4E64F8 5.74%, #7E74F9 33%, #CA8CFB 61.35%, #FB8C8C 108.23%); 
 `
 
 export const Avatar = styled.img`
@@ -18,6 +18,7 @@ export const Avatar = styled.img`
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  object-fit: cover;
 `
 
 export const Username = styled.div`
@@ -26,13 +27,13 @@ export const Username = styled.div`
   font-family: Roboto;
   font-style: normal;
   line-height: 13px;
-  color: #1D1D1D;
+  color: #FFFFF;
 `
 
 export const SpotlightLink = styled.a`
   margin: auto;
   padding: 5px;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   color: #1D1D1D;
@@ -41,8 +42,17 @@ export const SpotlightLink = styled.a`
   border-color: white;
   border-width: 1px;
   border-style: solid;
-  width: 150px;
+  width: 250px;
   margin-top: 20px;
+
+  &:hover { 
+    background: none;
+    color: white;
+  }
+
+
+
+
 `
 export const Links = styled.div`
   text-align: center;
@@ -53,26 +63,42 @@ export const IconContainer = styled.div`
   text-align: center;
   padding-top: 5px;
   margin: 0 auto;
-  width: 300px;
+  width: 350px;
+
+  @media (max-width: 320px) {
+    width: 300px
+  }
+
 `
 export const SocialMediaIcon = styled.button`
   position: relative;
   border-radius: 50%;
   margin-left: auto%;
   margin-top: 20px;
-  width: 2em;
-  height: 2em;  
+  width: 3.5em;
+  height: 3.5em;  
   border: none;
+
+  &:hover { 
+    width: 3.7em;
+    height:3.7em;
+  }
+
+  &:active { 
+    transform: translateY(4px); 
+  }
+
+
 `
 export const CardLogo = styled.div`
-  position: relative;
-  padding-top: 220px;
-  bottom: 10px;
+  position: fixed;
+  left: 48.5%;
+  bottom: 20px;
   font-family: Roboto;
   font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 18px;
   line-height: 14px;
   text-align: center;
-  color: #1D1D1D;
+  color: #FFFFF;
 `;

@@ -98,7 +98,7 @@ const User = ({ match, location }) => {
             <Avatar src={pfpURL} alt="profile picture" />
           </Row>
           <Row>
-            <Username>{match.params.user}</Username>
+            <Username>@{match.params.user}</Username>
           </Row>
           <Row>
             <SpotlightLink href={spotlightLink} target="_blank">{spotlightLabel}</SpotlightLink>
@@ -106,7 +106,7 @@ const User = ({ match, location }) => {
           <IconContainer>
             {loadIcons()}
           </IconContainer>
-          <CardLogo>Encor</CardLogo>
+          <CardLogo>encor</CardLogo>
         </React.Fragment>
        :
       <h3 style={{textAlign: 'center'}}>Username is free</h3> }

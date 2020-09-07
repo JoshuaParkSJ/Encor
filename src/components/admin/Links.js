@@ -202,7 +202,7 @@ const Links = () => {
               <Title>Social</Title>
             </Row>
             <AddLinkButton onClick={() => AddLinks('user', false)}>
-              <img src={Add} alt="add link button" style={{width: '15px', height: '15px'}} />
+              <img src={Add} alt="add link button" style={{width: '10px', height: '10px'}} />
             </AddLinkButton>
             <div style={{marginTop: '-30px'}}>
               {formState.map(child => {

@@ -8,8 +8,8 @@ export const ProfileContainer = styled(Grid)`
   left: 0px;
   width: 100%;
   height: 100%;
-  background: linear-gradient(148.51deg, #F8634E 1.8%, #FBD58C 40.75%, #FBE98C 74.84%, #F9FB8C 107.1%);
-  border-radius: 10px;
+  background: -webkit-linear-gradient(221.2deg, #4E64F8 5.74%, #7E74F9 33%, #CA8CFB 61.35%, #FB8C8C 108.23%); 
+  border-radius: 9px;
   margin: 0 auto;
   
 
@@ -31,7 +31,7 @@ export const Username = styled.div`
   font-family: Roboto;
   font-style: normal;
   line-height: 13px;
-  color: #1D1D1D;
+  color: #FFFFF;
 `
 
 export const SpotlightLink = styled.a`

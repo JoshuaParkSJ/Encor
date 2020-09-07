@@ -80,7 +80,7 @@ const UserPreview = props => {
           <Avatar src={pfpURL} alt="profile picture" />
         </Row>
         <Row>
-          <Username>{username}</Username>
+          <Username>@{username}</Username>
         </Row>
         <Row>
           <SpotlightLink href={spotlightLink} target="_blank">{spotlightLabel}</SpotlightLink>
