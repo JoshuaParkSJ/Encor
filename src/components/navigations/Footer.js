@@ -9,6 +9,7 @@ import Facebook from '../../assets/images/social-media-icons/facebook-icon.png';
 import Instagram from '../../assets/images/social-media-icons/instagram-icon.png'
 import Logo from '../../assets/images/logo.svg';
 import Icon from '@material-ui/core/Icon';
+import 'fontsource-roboto';
 
 function Copyright() {
   return (

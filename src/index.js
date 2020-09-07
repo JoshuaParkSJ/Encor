@@ -19,6 +19,8 @@ import Faq from './components/legal/Faq';
 import About from './components/legal/About';
 import Plans from './components/legal/Plans';
 import Forgot from './components/legal/Forgot';
+import 'fontsource-roboto';
+
 
 const theme  = createMuiTheme({
 

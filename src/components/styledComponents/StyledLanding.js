@@ -33,6 +33,7 @@ export const Features2Container = styled.div`
 export const TextContainer = styled.div`
   width: 100%;
   padding-left: 150px;
+  font-family: Roboto;
   @media (max-width: 960px) {
       text-align:center;
       padding-left: 10px
@@ -42,6 +43,7 @@ export const TextContainer2 = styled.div`
   width: 550px;
   padding-left: 7%;
   position: relative;
+  font-family: Roboto;
 
 
     @media (max-width: 960px) {
@@ -55,6 +57,7 @@ export const TextContainer2 = styled.div`
 export const TextContainer3 = styled.div`
   width: 550px;
   padding-left: 150px;
+  font-family: Roboto;
   @media (max-width: 960px) {
       padding-left: 0px;   
       padding-bottom: 30px;

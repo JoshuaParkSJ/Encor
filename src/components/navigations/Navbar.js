@@ -8,6 +8,8 @@ import {
  import Logo from './Logo';
  import  SignupButton  from './SignupButton';
  import { InvisibleButton } from '../styledComponents/StyledHeaderFooter';
+ import 'fontsource-roboto';
+
 
 const styleSheet = {
   list : {

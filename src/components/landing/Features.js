@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import lottie from 'lottie-web';
 import Fade from '@material-ui/core/Fade';
 import Box from "@material-ui/core/Box";
+import 'fontsource-roboto';
 
 const Features = () => {
 

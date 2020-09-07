@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import lottie from 'lottie-web';
 import Fade from '@material-ui/core/Fade';
 import Input from '../../assets/images/input.png';
+import 'fontsource-roboto';
 
 const Banner = () => {
 

@@ -12,6 +12,7 @@
     "classnames": "^2.2.6",
     "firebase": "^7.17.2",
     "firebase-tools": "^8.7.0",
+    "fontsource-roboto": "^3.0.3",
     "history": "^5.0.0",
     "lottie-web": "^5.7.1",
     "react": "^16.13.1",
