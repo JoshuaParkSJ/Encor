@@ -8,6 +8,7 @@ import{
   SocialMediaIcon, 
   IconContainer, 
 } from "../styledComponents/StyledUserPreview";
+import { SupportedMedia } from './SupportedMedia'; 
 
 const UserPreview = props => {
   const { username, linkRef, spotlightLabel, spotlightLink, pfpURL } = props.userInfo;
@@ -37,13 +38,17 @@ const UserPreview = props => {
     const amountToFillRow = lessThanFiveLinks ? linkRef.current.length - linkCount : 5;
     const linksArray = linkRef.current;
     const singleRow = linksArray.slice(linkCount, linkCount + amountToFillRow).map(link => {
+      let mediaName = matchIcon(link.link);
+      if (!(SupportedMedia.includes(mediaName))) {
+        mediaName = 'placeholder';
+      }
       return (
         <Col key={link.id} xs>
           {matchIcon(link.link) && 
             <SocialMediaIcon 
               key={link.id}
               onClick={() => window.location.replace(`//${link.link}`)} 
-              style={{background: `url(${require(`../../assets/images/social-media-icons/${matchIcon(link.link)}-icon.png`)})`, backgroundSize: 'cover', backgroundPosition: 'center'}} 
+              style={{background: `url(${require(`../../assets/images/social-media-icons/${mediaName}-icon.png`)})`, backgroundSize: 'cover', backgroundPosition: 'center'}} 
             />
           }
         </Col>

@@ -1,0 +1,17 @@
+export const SupportedMedia = [
+  'behance',
+  'dribble',
+  'facebook',
+  'github',
+  'instagram',
+  'linkedin',
+  'pinterest',
+  'reddit',
+  'snapchat',
+  'tiktok',
+  'tumblr',
+  'twitter',
+  'whatsapp',
+  'yelp',
+  'youtube',
+];

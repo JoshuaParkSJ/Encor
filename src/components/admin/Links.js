@@ -15,6 +15,8 @@ const Links = () => {
   const [pfpURL, setPfpURL] = useState(MockAvatar);
   const [startCollect, setStartCollect] = useState(false);
   const [renderMap, setRenderMap] = useState(null);
+  const [refresh, setRefresh] = useState(false);
+  const [formState, setFormState] = useState([]);
   const fileRf = useRef(null);
   const formRef = useRef([]);
   const linkRef = useRef([]);
@@ -31,7 +33,10 @@ const Links = () => {
           firebase.getUserInfo(user.displayName).then(result => {
             linkRef.current = result.links;
             if (result.links)
-            Object.values(result.links).forEach(() => AddLinks());
+            Object.values(result.links).forEach((_, index) => {
+              const loadComplete = Object.values(result.links).length === index + 1;
+              AddLinks('firebase', loadComplete);
+            });
             setSpotlightLabel(result.spotlightLabel);
             setSpotlightLink(result.spotlightLink);
           })
@@ -41,17 +46,48 @@ const Links = () => {
   }, [username])
 
   useEffect(() => {
-    if (startCollect) {
-      const collectedLinks = linkRef.current;
-      firebase.addLinksToUser({ spotlightLabel, spotlightLink, collectedLinks }).then(() => {
+    // in case user is not loaded yet and tries to apply changes, do && username
+    if (startCollect && username) {
+      let collectedLinks = [];
+      let collectedSpotlightLabel = '';
+      let collectedSpotlightLink = '';
+      if (spotlightLabel) {
+        collectedSpotlightLabel = spotlightLabel;
+      }
+      if (spotlightLink) {
+        collectedSpotlightLink = spotlightLink;
+      }
+      if (collectedLinks) {
+        collectedLinks = linkRef.current;
+      }
+      firebase.getDB().collection('users').doc(username).set({
+        spotlightLabel: collectedSpotlightLabel,
+        spotlightLink: collectedSpotlightLink,
+        links: collectedLinks
+      }).then(() => {
         setStartCollect(false);
-      });
+      })
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startCollect])
 
-  const AddLinks = () => {
-    formRef.current = [ ...formRef.current, <RenderLink key={formRef.current.length} id={formRef.current.length} />];
+  useEffect(() => {
+    if (refresh) {
+      setRefresh(false);
+      window.location.href = "/admin";
+    }
+  }, [refresh]);
+
+  const AddLinks = (dataSource, loadComplete) => {
+    if (dataSource === 'firebase') {
+      formRef.current = [ ...formRef.current, <RenderLink key={formRef.current.length} id={formRef.current.length} />];
+    }
+    if (dataSource === 'firebase' && loadComplete) {
+      setFormState(formRef.current);
+    }
+    if (dataSource === 'user') {
+      setFormState([ ...formState, <RenderLink key={formState.length} id={formState.length} /> ]);
+    }
     setRenderMap(formRef.current);
   };
   
@@ -101,7 +137,7 @@ const Links = () => {
         return <RenderLink key={link.id} id={link.id} />;
       });
       // render formRef
-      setRenderMap(formRef.current);
+      setFormState(formRef.current);
     }
     return (
       <form noValidate autoComplete="off">
@@ -130,24 +166,19 @@ const Links = () => {
     } else {
       const file = fileUploaded.files[0];
       console.log("p", "File " + file.name + " is " + file.size + " bytes in size");
-      firebase.pfpUpload(fileUploaded.files[0], username).then(profilePicLink => {
-        setPfpURL(profilePicLink);
-        window.location.href = "/admin";
-      })
+      const task = firebase.getStorage().ref(`profile_pictures/${username}/pfp`).put(fileUploaded.files[0]);
+      task.on('state_changed', () => {
+        firebase.getStorage().ref(`profile_pictures/${username}/pfp`).getDownloadURL().then(profilePicLink => {
+          setRefresh(true);
+          setPfpURL(profilePicLink);
+        })
+      });
     }
   }
 
   const pfpRemove = () => {
     setPfpURL(MockAvatar);
     firebase.pfpRemove(username);
-  }
-
-  const render = () => {
-    if (linkRef.current) {
-      return linkRef.current.map(child => {
-        return <RenderLink key={child.id} id={child.id} />
-      });
-    }
   }
 
   return (
@@ -170,11 +201,14 @@ const Links = () => {
               <Link label="Website URL" onChange={e => setSpotlightLink(e.target.value)} value={spotlightLink} id="spotlightLink" />
               <Title>Social</Title>
             </Row>
-            <AddLinkButton onClick={() => AddLinks()}>
+            <AddLinkButton onClick={() => AddLinks('user', false)}>
               <img src={Add} alt="add link button" style={{width: '15px', height: '15px'}} />
             </AddLinkButton>
-            <div style={{marginTop: '-30px'}}>{render()}</div>
-            <h5 style={{ textAlign: 'center' }}>Please enter as www.something.com</h5>
+            <div style={{marginTop: '-30px'}}>
+              {formState.map(child => {
+                return child;
+              })}
+            </div>
           </LinkBox>
         </Col>
           {width > 732 && (
