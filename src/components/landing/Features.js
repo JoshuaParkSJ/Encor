@@ -80,7 +80,7 @@ const Features = () => {
         <Grid item lg={6}>
         <Fade in='true' timeout={1000}>
             <TextContainer2>
-              <Tagline style={{fontFamily: 'Roboto'}}>Add Your Social Media</Tagline>
+              <Tagline> Add Your Social Media</Tagline>
               <Typography > Out of our 30+ generic social media icons <br/>
                   click them to enable as many social<br/>
                   media handles as you want!</Typography >
