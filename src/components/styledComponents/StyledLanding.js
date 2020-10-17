@@ -4,19 +4,24 @@ export const BannerContainer = styled.div`
   height: 550px;
   width: 100%;
   padding-top: 55px;
+  padding-left: 5%;
+
 
   @media (max-width: 1200px) {
       padding-top: 105px;
       height: 650px;
+      padding-left: 0px;
     }
 `;
 
 export const FeaturesContainer = styled.div`
   height: 650px;
   width: 100%;
+  padding-left: 5%;
 
   @media (max-width: 1200px) {
     height: 750px;
+    padding-left: 0px;
 
   }
   @media (max-width: 960px) {
@@ -76,6 +81,7 @@ export const Tagline = styled.h1`
   transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   transition: opacity 1.5s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2.5s cubic-bezier(0.5, 0, 0, 1) 0s;
   font-size: 3.2em;
+
 
   @media (max-width: 960px) {
     font-size: 2em;
