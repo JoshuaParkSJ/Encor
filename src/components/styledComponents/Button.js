@@ -44,7 +44,7 @@ const Button = styled.button.attrs(props => ({
     border: 0;
     &:hover {
       background: #5E5E5E;
-      box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+      //box-shadow: none;
       color: #fff;
       //transform: translateY(-7px);
     }
@@ -59,12 +59,27 @@ const Button = styled.button.attrs(props => ({
     border: 0;
     &:hover {
       background: #E07979;
-      box-shadow: #E07979;
+      box-shadow:  0px 4px 8px 2px rgba(218, 171, 255, 0.36);
       color: #fff;
       //transform: translateY(-7px);
     }
   }
   &.tertiary2 {
+    background: #A9A9A9;
+    border-radius: 20px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    &:hover {
+      background: background: #5E5E5E;;
+      box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+      color: #fff;
+      //transform: translateY(-7px);
+    }
+  }
+  &.remove {
     background: #A9A9A9;
     border-radius: 20px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);

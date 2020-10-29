@@ -190,7 +190,7 @@ const Links = () => {
             <Profile src={pfpURL} />
             <input type="file" id="file" ref={fileRf} onChange={e => fileUpload(e)} style={{display: "none"}}/>
             <UploadImage className="secondary" onClick={clickRef}>Upload Image</UploadImage> 
-            <RemoveImage className="white" onClick={() => pfpRemove()}>Remove</RemoveImage>
+            <RemoveImage className="white"  onClick={() => pfpRemove()}>Remove</RemoveImage>
           </ProfileBox>
           <LinkBox>
             <Row style={{marginLeft: '10px'}}>

@@ -144,7 +144,9 @@ export const RemoveImage = styled(Button)`
   position: relative; 
   top: -50px; 
   right: 80px;
+  background: white;
 
+  
   @media (max-width: 980px) {
     width: 100px;
     right: 40px;
@@ -239,6 +241,7 @@ export const RemoveButton = styled.button`
   cursor: pointer;
   left: 33px;
   top: 17px;
+ 
 
   @media (max-width: 428px) {
     top: 12px;

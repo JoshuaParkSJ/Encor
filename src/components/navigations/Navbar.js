@@ -116,7 +116,7 @@ class ResAppBar extends Component{
             </InvisibleButton>
           </Typography>
           <Typography  className = {classes.padding} color="inherit" >
-            <Button onClick={() => window.location = '/l/plans'}> Plans </Button>
+            <Button onClick={() => window.location = '/l/blog'}> Blog </Button>
           </Typography>
           <Typography className = {classes.padding} color="inherit">
             <Button onClick={() => window.location = '/login'} > Login </Button>

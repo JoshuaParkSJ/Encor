@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { green, purple, blue } from '@material-ui/core/colors';
+import { green, purple, blue, light } from '@material-ui/core/colors';
 import * as serviceWorker from './serviceWorker';
 
 import Landing from './components/landing/Landing';
@@ -27,6 +27,8 @@ const theme  = createMuiTheme({
   palette: {
     primary: purple,
     secondary: blue,
+    tertiary: blue
+    
   },
   tabs: {
      backgroundColor: 'white',
