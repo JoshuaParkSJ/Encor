@@ -2,10 +2,8 @@
 <br />
 <p align="center">
   <a href="https://encor.cc/">
-    <img src="https://github.com/JoshParkSJ/encor/blob/master/src/assets/images/logo.svg" alt="Logo" width="80" height="80">
+    <img src="https://github.com/JoshParkSJ/encor/blob/master/src/assets/images/logo.svg" alt="Logo" width="100" height="100">
   </a>
-
-  <h3 align="center">Encor</h3>
 
   <p align="center">
     Encor puts your entire digital presence into one easy to share, find and customized place!
@@ -18,7 +16,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://encor.cc/)
+<p align="center">
+    <img src="https://github.com/JoshParkSJ/encor/blob/master/assets/home_screenshot.png" alt="Logo" width="100" height="100">
+</p>
 
 We’re a tool for connecting with new friends and maintaining old ones.
 
