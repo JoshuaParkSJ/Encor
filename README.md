@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://encor.cc/">
-    <img src="https://github.com/JoshParkSJ/encor/blob/master/src/assets/images/logo.svg" alt="Logo" width="100" height="100">
+    <img src="https://github.com/JoshParkSJ/encor/blob/master/src/assets/images/logo.svg" alt="Logo" width="200" height="200">
   </a>
 
   <p align="center">
@@ -17,7 +17,7 @@
 ## About The Project
 
 <p align="center">
-    <img src="https://github.com/JoshParkSJ/encor/blob/master/assets/home_screenshot.png" alt="Logo" width="100" height="100">
+    <img src="https://github.com/JoshParkSJ/encor/blob/master/assets/home_screenshot.png" alt="Logo" width="1000" height="750">
 </p>
 
 We’re a tool for connecting with new friends and maintaining old ones.
