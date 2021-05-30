@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/JoshParkSJ/encor/blob/master/src/assets/images/logo.svg">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-## Available Scripts
+  <h3 align="center">Encor</h3>
 
-In the project directory, you can run:
+  <p align="center">
+    Encor puts your entire digital presence into one easy to share, find and customized place!
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</p>
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+[![Product Name Screen Shot][product-screenshot]](https://encor.cc/)
 
-### `npm test`
+We’re a tool for connecting with new friends and maintaining old ones.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+An Encor card not only allows you to instantly share all your social media handles to new friends, it let’s you do it through a completely customized and personalized link. Encor cards are also great for sharing new social media handles to your existing friend network.
 
-### `npm run build`
+In 2020 four university students realized that connecting via social media was becoming an increasing pain point as the number of platforms rised. Trying to find a specific person among billions of social media accounts was frustrating and difficult. It was also extremely hard to keep track of all your usernames and links. To fix this problem Encor was born. We’re a young team of developers, designers, marketers, and entrepreneurs who are passionate about making it easier for students to connect with other students. Entering university can be a scary and difficult time, and we want to make that transition easier for everyone. Using Encor it will be easier and better to connect with new friends.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built With
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* [React](https://reactjs.org)
+* [Styled-Components](https://styled-components.com)
+* [Firebase](https://firebase.google.com)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Try it out
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* [Encor.cc](https://encor.cc/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributors
+* [Joshua Park](https://github.com/JoshParkSJ)
+* [Luis Mangubat](https://github.com/luismangubat)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
