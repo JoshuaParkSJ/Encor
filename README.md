@@ -17,7 +17,7 @@
 ## About The Project
 
 <p align="center">
-    <img src="https://github.com/JoshParkSJ/encor/blob/master/assets/home_screenshot.png" alt="Logo" width="1000" height="750">
+    <img src="https://github.com/JoshParkSJ/encor/blob/master/assets/home_screenshot.png" alt="Logo" width="1000" height="550">
 </p>
 
 We’re a tool for connecting with new friends and maintaining old ones.
