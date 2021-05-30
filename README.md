@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/JoshParkSJ/encor/blob/master/src/assets/images/logo.svg">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://encor.cc/">
+    <img src="https://github.com/JoshParkSJ/encor/blob/master/src/assets/images/logo.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Encor</h3>
@@ -10,14 +10,7 @@
   <p align="center">
     Encor puts your entire digital presence into one easy to share, find and customized place!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://encor.cc/"><strong>Try it out »</strong></a>
   </p>
 </p>
 
@@ -38,11 +31,6 @@ In 2020 four university students realized that connecting via social media was b
 * [React](https://reactjs.org)
 * [Styled-Components](https://styled-components.com)
 * [Firebase](https://firebase.google.com)
-
-
-### Try it out
-
-* [Encor.cc](https://encor.cc/)
 
 ## Contributors
 * [Joshua Park](https://github.com/JoshParkSJ)
